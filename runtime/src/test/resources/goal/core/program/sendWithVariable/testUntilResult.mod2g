@@ -1,0 +1,11 @@
+use result as knowledge.
+use testSend.
+order = linearall.
+
+module testUntilResult {
+	if bel(result(X)) then exit-module.
+
+	if true then testSend.
+	
+	if not(bel(result(X))) then insert(result(failure)).
+}

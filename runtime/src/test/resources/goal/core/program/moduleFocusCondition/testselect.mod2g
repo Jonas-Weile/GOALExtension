@@ -1,0 +1,12 @@
+use result as knowledge.
+use testselect_goals as goals.
+use testselect_aapbeer.
+use testselect_aapkat.
+	
+module testselect {
+	if bel(result(X)) then exit-module.
+	%if goal(aap), goal(beer) then aapbeer.
+	%if goal(aap), goal(kat) then aapkat.
+	if goal(aap, beer) then aapbeer.
+	if goal(aap, kat) then aapkat.
+}

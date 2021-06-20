@@ -1,0 +1,5 @@
+use result as knowledge.
+
+define testaction as internal with
+	pre { aap(X) }
+	post { not(aap(X)), beer(X) }

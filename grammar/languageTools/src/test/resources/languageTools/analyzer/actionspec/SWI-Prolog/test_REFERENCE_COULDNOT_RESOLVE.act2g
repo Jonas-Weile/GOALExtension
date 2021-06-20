@@ -1,0 +1,3 @@
+use duplicate as knowledge.
+
+define skip with pre { true } post { true }

@@ -1,0 +1,13 @@
+use correctMasUnderTest.
+use beforeModule.
+use moduleUnderTest.
+use afterModule.
+use fibonaci as knowledge.
+
+fibonaci {
+	do beforeModule.
+		
+	do moduleUnderTest(****, ****, ****, ****).
+
+	do afterModule(something,something).
+}

@@ -1,0 +1,7 @@
+define quotedAtom as agent {
+	use quotedAtom as main.
+}
+
+launchpolicy {
+	launch quotedAtom.
+}

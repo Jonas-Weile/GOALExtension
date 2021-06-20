@@ -1,0 +1,6 @@
+use pl.pqr as knowledge.
+use dummyMove.
+
+module test_KR_BELIEF_QUERIED_NEVER_DEFINED {
+	if bel(p, s) then move.
+}

@@ -1,0 +1,9 @@
+define dummy as agent {
+	use decisions as main module.
+}
+
+launchpolicy{
+	launch dummy with name = dummy.
+	launch dummy with name = dummy2.
+	launch dummy with name = dummy2.
+}

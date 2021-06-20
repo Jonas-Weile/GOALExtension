@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="owlrepo" default="owlrepo" basedir="."> 
+  <target name="owlrepo">
+    <jar destfile="stardog-2.2.2.jar" zip64Mode="as-needed" filesetmanifest="merge"
+    	mergeClassPathAttributes="true" flattenAttributes="true">
+  	<zipgroupfileset dir="src/main/resources" includes="**/*.jar" /> 
+    	<manifest>
+        		 <attribute name="Sealed" value="false"/>
+      		</manifest>
+	</jar>
+  </target>
+</project>

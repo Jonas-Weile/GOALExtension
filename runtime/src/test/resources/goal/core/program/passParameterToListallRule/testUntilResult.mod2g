@@ -1,0 +1,10 @@
+use result as knowledge.
+use beer as beliefs.
+use testPassToListall.
+
+module testUntilResult {
+	if bel(result(X)) then exit-module.
+
+	% Proceed with testing.
+	if true then testPassToListall(12).
+}

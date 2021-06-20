@@ -1,0 +1,5 @@
+use family as knowledge.
+
+define mother(?x,?y) with pre { :Person(?x) ^ :Person(?y) ^ :hasParent(?x,?y) ^ :Female(?y) } post { :hasMother(?x,?y) }
+
+define action2 with pre { true } post { true } 

@@ -1,0 +1,9 @@
+% test if module parameter is passed on to action in listall rule.
+
+define passParameterToListall as agent {
+	use testUntilResult as main.
+}
+
+launchpolicy {
+	launch passParameterToListall.
+}

@@ -1,0 +1,325 @@
+% environments
+\newcounter{ex}[section]
+\newenvironment{exercise}[1][]{\noindent\addtocounter{ex}{1}\textbf{\arabic{chapter}.\arabic{section}.\arabic{ex}}\hspace{.5cm}\textit{#1}\begin{center}\begin{minipage}{14cm}}{\end{minipage}\end{center}}
+
+\newenvironment{proof}{\smallskip\noindent\emph{Proof.}\ }{\medskip}
+
+\newcommand\qedsymbol{{\small$\blacksquare$}}
+\newcommand\qed{\unskip\nobreak\hfil\penalty50\hskip0em\null\nobreak
+\hfil\qedsymbol\parfillskip=0pt\finalhyphendemerits=0\endgraf}
+
+% mathematics
+% tuple
+\newcommand{\tuple}[1]{\langle #1 \rangle}
+\newcommand{\nat}{\mathbb{N}}
+% opens up a new set in curly braces
+\newcommand{\set}[1]{\ensuremath{\{#1\}}}
+
+% Meta language
+\newcommand{\Impl}{\Rightarrow}
+\newcommand{\Bimpl}{\Leftrightarrow}
+\newcommand{\Rimpl}{\Leftarrow}
+
+% end of proof (qed)
+\gdef\qed{\relax\ifmmode~\hfill\blacksquare\else\unskip\nobreak 
+    ~\hfill$\square$\fi}
+%
+%\newenvironment{pf}%
+%  {\par\addvspace{12pt plus1pt minus3pt}\noindent
+%   {\em\proofname}\kern 1em\ignorespaces}%
+%  {\qed\par\addvspace{12pt plus1pt minus3pt}}
+%\def\proofname{Proof.}
+%
+
+% code listing
+\DefineVerbatimEnvironment{Listing}{Verbatim}{gobble, numbers=left,
+        numbersep=5pt, frame=lines, framesep=3mm, label={Code listing},
+        labelposition=topline, fontsize=\relsize{-2}, commandchars=\\\{\}
+}
+
+\DefineVerbatimEnvironment{NoFrameListing}{Verbatim}{gobble, numbers=left,
+        numbersep=5pt, frame=none, fontsize=\relsize{-2}, commandchars=\\\{\}
+}
+
+\DefineVerbatimEnvironment{Snippet}{Verbatim}{gobble, numbers=none,
+        numbersep=5pt, frame=single, framesep=2mm, label=none,
+        labelposition=topline, fontsize=\relsize{-2}, commandchars=\\\{\}
+}
+
+\newcommand{\codelisting}[2]{
+\begin{minipage}{.8\textwidth}
+  \begin{Listing}[label=#1]
+		#2
+  \end{Listing}
+\end{minipage}
+}
+
+%\definecolor{mygray}{rgb}{0.96,0.97,0.98}
+\definecolor{mygray}{gray}{0.75}
+\makeatletter\newenvironment{graybox}
+	{\begin{center}\begin{lrbox}{\@tempboxa}\begin{minipage}[t]{0.95\textwidth}}
+	{\end{minipage}\end{lrbox}\colorbox{mygray}{\usebox{\@tempboxa}}\end{center}}
+\makeatother
+
+\newcommand{\dotis}[0]{\hspace{.25cm}::=\hspace{.25cm}}
+
+
+
+% GOAL
+\newcommand{\GOAL}{\textsc{Goal}\xspace}
+
+% mas file
+\newcommand{\environment}{\textbf{environment}}
+\newcommand{\init}{\textbf{init}}
+\newcommand{\agentfiles}{\textbf{agentfiles}}
+\newcommand{\name}{\textbf{name}}
+\newcommand{\langue}{\textbf{language}}
+\newcommand{\launchpolicy}{\textbf{launchpolicy}}
+\newcommand{\when}{\textbf{when}}
+\newcommand{\entity}{\textbf{entity}}
+\newcommand{\atenv}{\textbf{@env}}
+\newcommand{\launch}{\textbf{launch}}
+
+% GOAL agent program sections
+\newcommand{\main}{\textbf{main}}
+\newcommand{\event}{\textbf{event}}
+\newcommand{\knowledge}{\textbf{knowledge}}
+\newcommand{\beliefs}{\textbf{beliefs}}
+\newcommand{\goals}{\textbf{goals}}
+\newcommand{\program}{\textbf{program}}
+\newcommand{\order}{\textbf{order}}
+\newcommand{\random}{\textbf{random}}
+\newcommand{\linear}{\textbf{linear}}
+\newcommand{\actionspec}{\textbf{actionspec}}
+
+% GOAL built-in actions
+\newcommand{\ins}{\textbf{insert}}
+\newcommand{\del}{\textbf{delete}}
+\newcommand{\adopt}{\textbf{adopt}}
+\newcommand{\drop}{\textbf{drop}}
+\newcommand{\send}{\textbf{send}}
+\newcommand{\sendonce}{\textbf{sendonce}}
+
+% GOAL program constructs
+\newcommand{\ifp}{\textbf{if}}
+\newcommand{\thenp}{\textbf{then}}
+\newcommand{\forallp}{\textbf{forall}}
+\newcommand{\listall}{\textbf{listall}}
+\newcommand{\dop}{\textbf{do}}
+\newcommand{\noop}{\textbf{skip}}
+\newcommand{\pre}{\textbf{pre}}
+\newcommand{\post}{\textbf{post}}
+\newcommand{\macro}{\textbf{{\#}define}}
+\newcommand{\module}{\textbf{module}}
+% mental state condition language
+\newcommand{\bel}{\textbf{bel}}
+\newcommand{\know}{\textbf{know}}
+\newcommand{\goal}{\textbf{goal}}
+%\newcommand{\bel}{\textbf{B}}
+%\newcommand{\goal}{\textbf{G}}
+\newcommand{\agoal}{\textbf{a-goal}}
+\newcommand{\goala}{\textbf{goal-a}}
+
+\newcommand{\code}[1]{\texttt{#1}}
+
+
+% actions: metalanguage
+\newcommand{\Act}{\mathcal{A}}
+\newcommand{\ac}{{\tt a}}
+
+% creates a table row for a BNF grammar
+\newcommand{\bnf}[2]{\texttt{#1} & ::= & \texttt{#2} \\}
+
+
+% Structural operational semantics: transition rules
+\newcommand{\transru}[2]{\shortstack{$\underline{\;\;{#1}\;\;}$ \\ $\;\;{#2}\;\;$}}
+\newcommand{\transro}[2]{\shortstack{$\;\;{#1}\;\;$ \\ $\overline{\;\;{#2}\;\;}$}}
+\newcommand{\transroax}[2]{\shortstack{$\;\;{#1}\;\;$ \\ $\;\;{#2}\;\;$}}
+\newcommand{\transrg}[3]{\shortstack{$\;\;{#1}\;\;$ \\ $\;\;{#2}\;\;$ \\ $\overline{\;\;{#3}\;\;}$}}
+\newcommand{\transrc}[3]{\shortstack{$\;\;{#1}\;\;$ \\ $\overline{\shortstack{$\;\;{#2}\;\;$ \\ $\;\;{#3}\;\;$}}$}}
+\newcommand{\transrlong}[3]{\shortstack{$\;\;{#1}\;\;$ \\ $\overline{\shortstack{$\;\;{#2}\;\;$ \\ $\;\;{#3}\;\;$}}$}}
+
+\newcommand{\lra}{\longrightarrow}
+
+% Basic action semantics
+\newcommand{\Trans}{{\cal T}}
+
+% GOAL mental state
+\newcommand{\kbase}{K} 														% knowledge base
+\newcommand{\bbase}{\Sigma}												% belief base
+\newcommand{\gbase}{\Gamma}												% goal base
+\newcommand{\ms}{\tuple{\kbase,\bbase,\gbase}} 		% mental state
+\newcommand{\msprime}{\tuple{\kbase',\bbase',\gbase'}} % mental state
+
+\newcommand{\agent}{Agt}
+\newcommand{\GOALagent}{\tuple{\kbase,\bbase,\gbase,\program,\actionspec}}
+
+
+% Knowledge representation technology
+\newcommand{\krl}{\ensuremath{\mathcal{L}}}				% knowledge representation language
+\newcommand{\beliefupdate}{\oplus}								% belief update operator
+\newcommand{\krt}{\ensuremath{\tuple{\krl,\models,\beliefupdate}}}
+
+% GOAL framework
+\newcommand{\mss}{\Psi}														% set of mental states
+\newcommand{\modelsmsc}{\models_{\Psi}}
+\newcommand{\Lmental}{\mathcal{L}_{\Psi}}         % mental state conditions
+\newcommand{\goalupdate}{\otimes}									% goal update operator
+\newcommand{\GOALframework}{\ensuremath{\tuple{\mss,\Lmental,\modelsmsc,\mst}}}
+
+
+
+% semantics
+\newcommand{\sem}{\mathcal{M}}
+% interpretation function
+\newcommand{\denot}[2]{{\lbrack\hspace{-0.05cm}\lbrack #1 \rbrack\hspace{-0.05cm}\rbrack}_{#2}}
+\newcommand{\update}{\oplus}
+\newcommand{\select}{{\sf select}} 								% revision selection function
+
+
+
+% logical languages
+\newcommand{\false}{\textbf{false}}
+\newcommand{\true}{\textbf{true}}
+\newcommand{\notp}{\textbf{not}}
+
+\newcommand{\impl}{\rightarrow}
+\newcommand{\bimpl}{\leftrightarrow}
+
+% linear temporal logic
+\newcommand{\start}{\textbf{start}}								% start, i.e. t=0
+\newcommand{\next}{\bigcirc}                      % next operator
+\newcommand{\sometime}{\ensuremath{\Diamond}}%{{\sf F}}			% sometime operator
+\newcommand{\always}{\Box}%{{\sf G}}							% always
+\newcommand{\until}{\;{\bf until}\;}							% until
+\newcommand{\before}{\;{\bf before}\;}            % before
+
+
+\newcommand{\LTL}{\mathcal{L}_{LTL}}							% linear temporal logic
+\newcommand{\modelsltl}{\ensuremath{\models_{LTL}}}
+
+\newcommand{\LGOAL}{\mathcal{L}_{G}}              % well-formed GOAL programming logic formula
+
+\newcommand{\perform}{\textbf{do}}
+\newcommand{\enabled}{{\bf enabled}}
+\newcommand{\option}{{\bf option}}
+
+% Epistemic and goal operators
+\newcommand{\belg}{{\bf B}}															% belief operator
+\newcommand{\goalg}{{\bf G}}														% goal operator
+\newcommand{\agoalg}{{\bf A}\mbox{\bf -}{\bf Goal}}
+
+
+
+
+% semantics
+\newcommand{\ltlb}{\mathit{LTL}}
+\newcommand{\tf}{T}
+
+\newcommand{\mst}{\mathcal{M}}
+\newcommand{\progress}{\mathit{Progr}}
+\newcommand{\progressind}{\mathit{Progr}_\textit{indvG}}
+\newcommand{\fail}{\textit{fail}}
+
+\newcommand{\Runs}{\mathcal{R}}
+\newcommand{\run}{r}
+\newcommand{\runprime}{r'}
+\newcommand{\runs}{\mathcal{R}}                          % set of runs
+                                % or computations
+
+% utils for proof
+\newcommand{\acterms}{\ensuremath{\bar{\textbf{t}}}}
+\newcommand{\acins}{\ensuremath{\ac(\acterms)}}
+%action in a run
+\newcommand{\rac}{\ensuremath{\run^{a}}}
+%mental state of a run
+\newcommand{\rms}{\ensuremath{\run^{m}}}
+\newcommand{\m}{\ensuremath{m}}
+\newcommand{\fat}{\ensuremath{f_{at}(\Pddlactions)}}
+\newcommand{\modelltl}{\ensuremath{M_{LTL}}}
+
+
+
+% PDDL
+\newcommand{\Pddl}{{PDDL}}
+% the fragment of PDDL we consider
+\newcommand{\Pddlfragment}{\ensuremath{\Pddl_{Ax+CE+PC}}}
+% PDDL base language
+\newcommand{\Lpddl}{\ensuremath{\mathcal{L}_0}}   % base language
+\newcommand{\pred}{\ensuremath{\mathcal{P}}}			% predicates
+\newcommand{\bpred}{\ensuremath{\mathcal{B}}}			% basic predicates
+\newcommand{\dpred}{\ensuremath{\mathcal{D}}}			% derived predicates
+\newcommand{\var}{\ensuremath{\mathcal{V}}}				% variables
+\newcommand{\const}{\ensuremath{\mathcal{C}}}			% constants
+\newcommand{\func}{\ensuremath{\mathcal{F}}}			% function symbols
+\newcommand{\term}{\ensuremath{\mathcal{T}}}			% terms
+% PDDL domain definition
+\newcommand{\Pddldomain}{\ensuremath{\Delta}}
+\newcommand{\Pddlaxioms}{\ensuremath{\mathcal{A}}}
+\newcommand{\Pddlactions}{\ensuremath{\mathcal{O}}}
+\newcommand{\domaintuple}{\tuple{\Lpddl, \Pddlaxioms, \Pddlactions}}
+% PDDL problem definition
+\newcommand{\Pddlproblem}{\ensuremath{\Pi}}
+\newcommand{\Pddlconstants}{\ensuremath{\mathcal{C}}}
+\newcommand{\Pddlinitial}{\ensuremath{\mathcal{I}}}
+\newcommand{\Pddlgoal}{\ensuremath{\mathcal{G}}}
+\newcommand{\Pddlconstraints}{\ensuremath{\mathcal{PC}}}
+\newcommand{\problemtuple}{\tuple{\Pddldomain, \Pddlconstants,
+\Pddlinitial, \Pddlgoal, \Pddlconstraints}}
+
+\newcommand{\plan}{\ensuremath{\pi}}
+%\newcommand{\constraint}{\ensuremath{\Phi}}
+
+% s models pddl axioms
+\newcommand{\modelsa}{\ensuremath{\models_\Pddlaxioms}}
+
+% action parts
+\newcommand{\variables}{\ensuremath{\vec{x}}}
+\newcommand{\terms}{\ensuremath{\vec{t}}}
+\newcommand{\precondition}{\ensuremath{\pi_{\ac}}}
+\newcommand{\effect}{\ensuremath{\epsilon_{\ac}}}
+\newcommand{\preconditionvar}{\ensuremath{\pi_{\ac}[\variables]}}
+\newcommand{\effectvar}{\ensuremath{\epsilon_{\ac}[\variables]}}
+
+% action effect
+\newcommand{\acteffect}{\textrm{effect}}
+
+% conditional action precondition
+\newcommand{\condpred}{\textrm{precond}}
+
+% goal description
+\newcommand{\gd}{\ensuremath{\phi[\variables]}}
+
+% seperation | with space around it
+\newcommand{\pipe}{\ensuremath{\;|\;}}
+
+% derived predicate head
+\newcommand{\dhead}{\ensuremath{d(\variables)}}
+% derived predicate body
+\newcommand{\dbody}{\ensuremath{\phi[\variables]}}
+\newcommand{\grounddbody}{\ensuremath{\phi(\bar{\textbf{c}})}}
+
+% fluent
+\newcommand{\fluent}{\ensuremath{p(\variables)}}
+\newcommand{\groundfluent}{\ensuremath{p(\bar{\textbf{c}})}}
+
+% positive and negative effects
+\newcommand{\poseffect}{\ensuremath{\textit{Eff}^{+}}}
+\newcommand{\negeffect}{\ensuremath{\textit{Eff}^{-}}}
+
+% state sequence
+\newcommand{\stateseq}{\ensuremath{\tuple{S_0, \ldots, S_n}}}
+\newcommand{\stateseqmodels}[1]{\stateseq \modelsa \textnormal{\code{#1}}\; \phi}
+
+% compilation scheme
+\newcommand{\cscheme}{{\bf F}}
+\newcommand{\cpddltogoal}{{\bf f}}
+
+\newcommand{\poseffectadl}{\ensuremath{\poseffect_{ADL}}}
+\newcommand{\poseffectltl}{\ensuremath{\poseffect_{LTL}}}
+\newcommand{\negeffectadl}{\ensuremath{\negeffect_{ADL}}}
+\newcommand{\negeffectltl}{\ensuremath{\negeffect_{LTL}}}
+
+
+
+

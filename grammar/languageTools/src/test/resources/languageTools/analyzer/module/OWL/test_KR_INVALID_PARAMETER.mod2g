@@ -1,0 +1,5 @@
+use family as knowledge.
+
+module invalidparameter(#) {
+	if true then print(#).
+}

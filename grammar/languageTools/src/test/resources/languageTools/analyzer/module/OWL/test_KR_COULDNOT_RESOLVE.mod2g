@@ -1,0 +1,3 @@
+module nokr {
+	if true then print("hello"^^"xsd:string").
+}

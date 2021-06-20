@@ -1,0 +1,11 @@
+use fibonaci as mas.
+use fibonaci as module.
+use fibonaci as knowledge.
+
+test fibonaci with
+	pre{ not(bel(fib(_))) }
+	post{ bel(fib(46368)) }
+
+fibonaci {
+	do fibonaci.
+}

@@ -1,0 +1,11 @@
+use passParameterToNestedRules as mas.
+use passParameterToNestedRules as module.
+use result as knowledge.
+
+test passParameterToNestedRules with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+passParameterTest {
+	do passParameterToNestedRules.
+}

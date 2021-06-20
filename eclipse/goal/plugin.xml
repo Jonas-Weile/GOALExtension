@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="nature" point="org.eclipse.core.resources.natures">
+    	<runtime>
+        	<run class="org.eclipse.gdt.GoalNature"/>
+    	</runtime>
+	</extension>
+   
+	<extension point="org.eclipse.ui.ide.projectNatureImages">
+    	<image
+      		icon="icons/goalProject.png"
+        	natureId="org.eclipse.gdt.nature"
+        	id="org.eclipse.gdt.nature.image"/>
+   	</extension>
+   
+   	<extension point="org.eclipse.core.contenttype.contentTypes">
+      	<content-type
+        	base-type="org.eclipse.core.runtime.text"
+            file-extensions="mas2g,act2g,plan2g,mod2g,test2g"
+            id="org.eclipse.gdt.contentType"
+            name="GOAL Project Files"
+        	priority="high"/>
+   	</extension>
+   	
+   	<extension point="org.eclipse.dltk.core.builder">
+      <builder 
+      		nature="org.eclipse.gdt.nature" 
+      		class="org.eclipse.gdt.parser.GoalProjectBuilder"
+      		priority="0"/>
+   </extension>
+   
+	<extension point="org.eclipse.dltk.core.language">
+    	<language
+        	class="org.eclipse.gdt.GoalLanguageToolkit"
+            nature="org.eclipse.gdt.nature"
+            priority="0"/>
+   	</extension>
+   
+   	<extension point="org.eclipse.dltk.ui.language">
+      	<language
+            class="org.eclipse.gdt.ui.GoalUILanguageToolkit2"
+            nature="org.eclipse.gdt.nature"
+            priority="1"/>
+   	</extension>
+   	
+	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+   		<launchConfigurationType
+   			id="org.eclipse.gdt.launch.GoalLaunchConfigurationType"
+      		delegate="org.eclipse.gdt.launch.GoalLaunchConfigurationDelegate"
+      		modes="run,debug"
+      		public="true"
+      		sourceLocatorId="goalSourceLocator"
+            sourcePathComputerId="goalSourcePathComputer"
+      		name="GOAL"/>
+	</extension>
+	
+	<extension point="org.eclipse.debug.core.sourceLocators">
+    	<sourceLocator
+        	class="org.eclipse.dltk.launching.sourcelookup.ScriptSourceLookupDirector"
+           	id="goalSourceLocator"
+           	name="GOAL Source Locator" />
+   	</extension>
+  
+   	<extension point="org.eclipse.debug.core.sourcePathComputers">
+   		<sourcePathComputer
+        	class="org.eclipse.dltk.launching.sourcelookup.ScriptSourcePathComputer"
+            id="goalSourcePathComputer"/>
+   	</extension>
+   	
+   	<extension point="org.eclipse.debug.core.watchExpressionDelegates">
+   		<watchExpressionDelegate
+   			debugModel="org.eclipse.dltk.debug.goalModel"
+         	delegateClass="org.eclipse.gdt.debug.GoalWatchExpressionDelegate"/>
+   	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+		<launchConfigurationTabGroup
+			class="org.eclipse.gdt.launch.GoalLaunchConfigurationTabGroup"
+			description="GOAL"
+			id="org.eclipse.gdt.launch.GoalLaunchConfigurationTabGroup"
+			type="org.eclipse.gdt.launch.GoalLaunchConfigurationType">
+				<launchMode
+					mode="run"
+					perspective="org.eclipse.gdt.perspective"
+					description="Run a GOAL MAS"/>
+				<launchMode
+					mode="debug"
+					perspective="org.eclipse.gdt.debug.perspective"
+					description="Debug a GOAL MAS"/>
+		</launchConfigurationTabGroup>
+	</extension>
+   	
+   	<extension point="org.eclipse.dltk.launching.interpreterInstallTypes">
+        <interpreterInstallType
+            class="org.eclipse.gdt.launch.GoalInterpreterInstallType"
+            id="org.eclipse.gdt.launch.GoalInterpreterInstallType"/>
+   	</extension>   
+   	
+   	<extension point="org.eclipse.dltk.launching.interpreterInstalls">
+     <interpreterInstall
+           home="${eclipse_home}"
+           id="org.eclipse.gdt.launching.interpreter"
+           interpreterInstallType="org.eclipse.gdt.launch.GoalInterpreterInstallType"
+           name="GOAL Interpreter"/>
+  </extension>
+   
+	<extension point="org.eclipse.ui.newWizards">
+    	<category
+            id="org.eclipse.gdt.wizards"
+            name="GOAL Agent Programming"/>
+   		<wizard
+        	category="org.eclipse.gdt.wizards"
+            class="org.eclipse.gdt.ui.wizard.NewProjectWizard:org.eclipse.gdt.nature"
+            finalPerspective="org.eclipse.gdt.perspective"
+            icon="icons/goalProject.png"
+            id="org.eclipse.gdt.project.wizard"
+            name="GOAL Project"
+            project="true">
+      		<description>Create a GOAL Project</description>
+      	</wizard>
+      	<wizard
+        	category="org.eclipse.gdt.wizards"
+            class="org.eclipse.gdt.ui.wizard.ExampleProjectWizard:org.eclipse.gdt.nature"
+            finalPerspective="org.eclipse.gdt.perspective"
+            icon="icons/goalProject.png"
+            id="org.eclipse.gdt.example.wizard"
+            name="GOAL Example Project"
+            project="true">
+      		<description>Create a GOAL Project from an example</description>
+      	</wizard>
+       	<wizard
+        	category="org.eclipse.gdt.wizards"
+            class="org.eclipse.gdt.ui.wizard.NewActionFileWizard"
+            finalPerspective="org.eclipse.gdt.perspective"
+            icon="icons/goalFile.png"
+            id="org.eclipse.gdt.actionfile.wizard"
+            name="GOAL Action Specification File">
+            <description>Create a new action specification file</description>
+       	</wizard>
+       	<wizard
+       		category="org.eclipse.gdt.wizards"
+            class="org.eclipse.gdt.ui.wizard.NewMASFileWizard"
+            finalPerspective="org.eclipse.gdt.perspective"
+            icon="icons/masFile.png"
+            id="org.eclipse.gdt.masfile.wizard"
+            name="GOAL MAS File">
+        	<description>Create a new multi-agent system file</description>
+       	</wizard>
+       	<wizard
+      		category="org.eclipse.gdt.wizards"
+            class="org.eclipse.gdt.ui.wizard.NewModuleFileWizard"
+            finalPerspective="org.eclipse.gdt.perspective"
+            icon="icons/goalFile.png"
+            id="org.eclipse.gdt.modulefile.wizard"
+            name="GOAL Module File">
+            <description>Create a new module file</description>
+       	</wizard>
+       	<wizard
+      		category="org.eclipse.gdt.wizards"
+            class="org.eclipse.gdt.ui.wizard.NewTestFileWizard"
+            finalPerspective="org.eclipse.gdt.perspective"
+            icon="icons/goalFile.png"
+            id="org.eclipse.gdt.testfile.wizard"
+            name="GOAL Test File">
+            <description>Create a new agent test file</description>
+       	</wizard>
+       	<wizard
+      		category="org.eclipse.gdt.wizards"
+            class="org.eclipse.gdt.ui.wizard.NewPrologFileWizard"
+            finalPerspective="org.eclipse.gdt.perspective"
+            icon="icons/goalFile.png"
+            id="org.eclipse.gdt.prologfile.wizard"
+            name="Prolog File">
+            <description>Create a new SWI Prolog file</description>
+       	</wizard>
+	</extension>
+
+	<extension point="org.eclipse.ui.importWizards">
+		<category
+            id="org.eclipse.gdt.wizards.import"
+            name="GOAL Agent Programming"/>
+    	<wizard
+        	category="org.eclipse.gdt.wizards.import"
+         	class="org.eclipse.gdt.ui.wizard.ImportProjectWizard"
+         	icon="icons/goalProject.png"
+         	id="org.eclipse.gdt.import.wizard"
+         	name="Existing GOAL Project">
+         	<description>Import an existing GOAL project into the Workspace</description> 
+         	<selection class="org.eclipse.core.resources.IResource"/> 
+      	</wizard> 
+   	</extension> 
+   
+	<extension point="org.eclipse.dltk.core.sourceParsers">
+    	<parserContribution natureId="org.eclipse.gdt.nature">
+        	<parser
+            	class="org.eclipse.gdt.parser.GoalSourceParserFactory"
+            	description="GOAL Source parser"
+               	id="org.eclipse.gdt.sourceParser"
+               	name="sourceParser.name"
+               	priority="0"/>
+      	</parserContribution>
+	</extension>
+   
+	<extension point="org.eclipse.dltk.core.sourceElementParsers">
+    	<parser
+        	class="org.eclipse.gdt.parser.GoalSourceElementParser"
+            nature="org.eclipse.gdt.nature"
+            priority="1"/>
+	</extension>
+   
+   	<extension point="org.eclipse.ui.editors">
+    	<editor 
+        	class="org.eclipse.gdt.editor.GoalEditor"
+      		icon="icons/goalProject.png"
+            default="false"
+            id="org.eclipse.gdt.editor"
+            name="GOAL Editor">
+         		<contentTypeBinding contentTypeId="org.eclipse.gdt.contentType"/>
+   		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.expressions.definitions">
+    	<definition id="org.eclipse.gdt">
+        	<with variable="activeWorkbenchWindow.activePerspective">
+            	<equals value="org.eclipse.gdt.perspective"/>
+         	</with>
+      	</definition>
+ 	</extension>
+	
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+	    	allPopups="false"
+	        locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+	     	<toolbar
+	        	id="org.eclipse.gdt.toolbar"
+	           	label="GOAL MAS">
+		        <control
+		        	class="org.eclipse.gdt.editor.ComboToolbar"
+		            id="org.eclipse.gdt.toolbar.combo">
+			        	<visibleWhen>
+			        		<reference definitionId="org.eclipse.gdt"/>
+	                	</visibleWhen>
+		        </control>
+	    	</toolbar>
+	   	</menuContribution>
+	</extension>
+   
+   	<extension point="org.eclipse.core.runtime.preferences">
+    	<initializer class="org.eclipse.gdt.prefs.GoalPreferenceInitializer"/>
+  	</extension>
+	
+	<!--<extension point="org.eclipse.dltk.ui.search">
+    	<occurrencesFinder
+        	class="org.eclipse.gdt.search.GoalOccurrencesFinder"
+         	nature="org.eclipse.gdt.nature"/>
+	</extension>-->
+	
+	<extension point="org.eclipse.dltk.core.selectionEngine">
+   		<selectionEngine
+        	class="org.eclipse.gdt.search.GoalSelectionEngine"
+        	nature="org.eclipse.gdt.nature"
+        	priority="0"/>
+	</extension>
+	
+	<extension point="org.eclipse.dltk.ui.scriptDocumentationProviders">
+     	<provider
+        	class="org.eclipse.gdt.search.GoalDocumentationProvider"
+           	id="org.eclipse.gdt.documentationProvider"
+           	nature="org.eclipse.gdt.nature"/>
+	</extension>
+	
+	<extension point="org.eclipse.dltk.core.completionEngine">
+   		<completionEngine
+        	class="org.eclipse.gdt.completion.GoalCompletionEngine"
+        	nature="org.eclipse.gdt.nature"
+        	priority="0"/>
+	</extension>
+	
+	<extension point="org.eclipse.dltk.ui.scriptCompletionProposalComputer"
+		id="GoalTypeCompletionProposalComputer">
+		<scriptCompletionProposalComputer
+			class="org.eclipse.gdt.completion.GoalCompletionProposalComputer"
+			categoryId="org.eclipse.dltk.ui.scriptTypeProposalCategory"
+			toolkitId="org.eclipse.gdt.nature">
+			<partition type="__dftl_partition_content_type"/>
+		</scriptCompletionProposalComputer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.templates">
+    	<contextType
+       		class="org.eclipse.gdt.completion.GoalUniversalTemplateContextType"
+          	id="org.eclipse.gdt.templates"
+          	name="GOAL Templates"/>
+       <template
+            autoinsert="true"
+            contextTypeId="org.eclipse.gdt.templates"
+            description="Template for a Multi-Agent System File"
+            id="org.eclipse.gdt.masfile.template"
+            name="MAS File Template">
+          	<pattern>
+
+launchpolicy{
+
+}
+          	</pattern>
+       </template>
+       <template
+            autoinsert="true"
+            contextTypeId="org.eclipse.gdt.templates"
+            description="Template for a Multi-Agent System File with environment"
+            id="org.eclipse.gdt.masfile.templateEnv"
+            name="MAS File Template">
+          	<pattern>
+use "%s" as environment.
+
+launchpolicy{
+
+}
+          	</pattern>
+       	</template>
+       	<template
+        	autoinsert="true"
+            contextTypeId="org.eclipse.gdt.templates"
+            description="Template for an action specification file"
+            id="org.eclipse.gdt.actionfile.template"
+            name="Action Specification File Template">
+          <pattern>
+
+define %s with
+	pre{ true }
+	post{ true }
+          </pattern>
+       	</template>
+       	<template
+        	autoinsert="true"
+            contextTypeId="org.eclipse.gdt.templates"
+            description="Template for a module file"
+            id="org.eclipse.gdt.modulefile.template"
+            name="Module File Template">
+        	<pattern>
+
+module %s {
+	
+}
+          	</pattern>
+       	</template>
+       	<template
+        	autoinsert="true"
+            contextTypeId="org.eclipse.gdt.templates"
+            description="Template for an agent test file"
+            id="org.eclipse.gdt.testfile.template"
+            name="Agent Test File Template">
+        	<pattern>
+
+test %s with
+	pre{ }
+	in{ }
+	post{ }
+          	</pattern>
+       	</template>
+    </extension>
+    
+	<extension point="org.eclipse.ui.preferencePages">
+    	<page 
+	    	class="org.eclipse.ui.internal.dialogs.EmptyPreferencePage"
+			id="org.eclipse.gdt.preferences.root"
+			name="GOAL"/>
+        <page
+        	class="org.eclipse.gdt.prefs.GoalRuntimePreferencePage"
+            id="org.eclipse.gdt.preferences.runtime"
+            category="org.eclipse.gdt.preferences.root"
+            name="Runtime"/>
+        <page
+        	class="org.eclipse.gdt.prefs.GoalLoggingPreferencePage"
+            id="org.eclipse.gdt.preferences.logging"
+            category="org.eclipse.gdt.preferences.root"
+            name="Logging"/>
+        <page
+        	class="org.eclipse.gdt.prefs.GoalTemplatePreferencePage"
+            id="org.eclipse.gdt.preferences.templates"
+            category="org.eclipse.gdt.preferences.root"
+            name="Templates"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+		<context 
+			name="Editing GOAL Source" 
+			description="Editing GOAL Source Context"
+			parentId="org.eclipse.dltk.ui.scriptEditorScope"
+			id="org.eclipse.gdt.editorScope"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+		<command
+			name="Comment"
+			description="Comment Selection"
+			defaultHandler="org.eclipse.gdt.actions.CommentSelectionHandler"
+			id="org.eclipse.gdt.commentSelection"/>
+	</extension>
+ 
+  	<!--<extension point="org.eclipse.dltk.core.model">
+  		<model
+    		class="org.eclipse.gdt.ui.navigator.MASModelProvider"
+        	id="org.eclipse.gdt.masmodel"
+        	language="org.eclipse.gdt.nature"/>
+  	</extension>-->
+   
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+    	<shortcut
+        	label="GOAL"
+            modes="run, debug"
+            class="org.eclipse.gdt.launch.GoalLaunchShortcut"
+            id="org.eclipse.gdt.launchShortcut">
+        	<contextualLaunch>
+           		<enablement>
+             		<with variable="selection">
+               			<count value="1"/>
+               			<iterate>
+                			<or>
+           	     				<test property="org.eclipse.dltk.launching.hasProjectNature" 
+           	           				args="org.eclipse.gdt.nature"/>           	  
+               				</or>
+               			</iterate>
+               		</with>
+           		</enablement>
+  		 	</contextualLaunch>
+  		</shortcut>
+	</extension>
+	
+	<extension point="org.eclipse.ui.perspectives">
+		<perspective
+        	class="org.eclipse.gdt.ui.GoalPerspectiveFactory"
+        	icon="icons/goalProject.png"
+        	id="org.eclipse.gdt.perspective"
+        	name="GOAL">
+     			<description>The GOAL Development Tools Perspective</description>
+  		</perspective>
+  		<perspective
+        	class="org.eclipse.gdt.debug.ui.GoalDebugPerspectiveFactory"
+        	icon="icons/goalDebug.png"
+        	id="org.eclipse.gdt.debug.perspective"
+        	name="GOAL Debug">
+     			<description>The GOAL Debug Perspective</description>
+  		</perspective>
+	</extension>
+
+ 	<extension point="org.eclipse.ui.perspectiveExtensions">
+    	<perspectiveExtension
+        	targetID="org.eclipse.gdt.perspective">
+       		<newWizardShortcut id="org.eclipse.gdt.project.wizard"/>
+       		<newWizardShortcut id="org.eclipse.gdt.example.wizard"/>
+	       	<view
+	        	id="org.eclipse.dltk.ui.ScriptExplorer"
+	            minimized="false"
+	            ratio="0.2f"
+	            relationship="left"
+	            relative="org.eclipse.ui.editorss"/>
+	       	<view
+	            id="org.eclipse.ui.views.ContentOutline"
+	            minimized="false"
+	            ratio="0.75f"
+	            relationship="bottom"
+	            relative="org.eclipse.dltk.ui.ScriptExplorer"/>
+	       	<view
+	            id="org.eclipse.ui.views.ProblemView"
+	            minimized="false"
+	            ratio="0.75f"
+	            relationship="bottom"
+	            relative="org.eclipse.ui.editorss"/>
+	       	<view
+	            id="org.eclipse.ui.console.ConsoleView"
+	            minimized="false"
+	            relationship="stack"
+	            relative="org.eclipse.ui.views.ProblemView"
+	            visible="true"/>
+	        <viewShortcut id="org.eclipse.ui.views.ContentOutline"/>
+	        <viewShortcut id="org.eclipse.ui.console.ConsoleView"/>
+	        <viewShortcut id="org.eclipse.ui.views.ProblemView"/>
+	        <newWizardShortcut id="org.eclipse.gdt.actionfile.wizard"/>
+	        <newWizardShortcut id="org.eclipse.gdt.masfile.wizard"/>
+	        <newWizardShortcut id="org.eclipse.gdt.modulefile.wizard"/>
+	        <newWizardShortcut id="org.eclipse.gdt.testfile.wizard"/>
+	        <newWizardShortcut id="org.eclipse.gdt.prologfile.wizard"/>
+	        <newWizardShortcut id="org.eclipse.ui.wizards.new.folder"/>
+	        <actionSet id="org.eclipse.debug.ui.launchActionSet"/>
+    	</perspectiveExtension>
+ 	</extension>
+ 	
+ 	<extension point="org.eclipse.ui.views">
+ 		<view
+ 			name="Evaluation"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.gdt.debug.ui.GoalVariablesViewEvaluation"
+            id="org.eclipse.gdt.debug.ui.GoalVariablesViewEvaluation"/>
+ 		<view
+ 			name="Beliefs"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.gdt.debug.ui.GoalVariablesViewBeliefs"
+            id="org.eclipse.gdt.debug.ui.GoalVariablesViewBeliefs"/>
+        <view
+ 			name="Goals"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.gdt.debug.ui.GoalVariablesViewGoals"
+            id="org.eclipse.gdt.debug.ui.GoalVariablesViewGoals"/>
+        <view
+ 			name="Percepts"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.gdt.debug.ui.GoalVariablesViewPercepts"
+            id="org.eclipse.gdt.debug.ui.GoalVariablesViewPercepts"/>
+        <view
+ 			name="Mails"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.gdt.debug.ui.GoalVariablesViewMails"
+            id="org.eclipse.gdt.debug.ui.GoalVariablesViewMails"/>
+        <view
+ 			name="Agent Console"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.gdt.debug.ui.GoalAgentConsoleView"
+            id="org.eclipse.gdt.AgentConsoleView"/>
+        <view
+ 			name="History View"
+            category="org.eclipse.debug.ui"
+            class="org.eclipse.gdt.debug.history.GoalHistoryView"
+            id="org.eclipse.gdt.HistoryView"/>
+ 	</extension>
+ 	
+	<extension point="org.eclipse.dltk.ui.dltkElementFilters">
+    	<filter
+      		targetId="org.eclipse.dltk.ui.ScriptExplorer"
+            name="GoalHideReferencedLibraries"
+            enabled="true"
+            description="Hide Referenced Libraries"
+            class="org.eclipse.dltk.internal.ui.filters.LibraryFilter"
+            id="org.eclipse.gdt.ui.navigator.LibraryFilter"/>
+      	<filter
+            targetId="org.eclipse.dltk.ui.ScriptExplorer"
+            name="GoalHideContainedLibraries"
+            enabled="true"
+            description="Hide Contained Libraries"
+            class="org.eclipse.dltk.internal.ui.filters.ContainedLibraryFilter"
+            id="org.eclipse.gdt.ui.navigator.ContainedLibraryFilter"/>
+      	<filter
+            targetId="org.eclipse.dltk.ui.ScriptExplorer"
+            name="GoalHideNonScriptProjects"
+            enabled="true"
+            description="Hide Non Script Projects"
+            class="org.eclipse.dltk.internal.ui.filters.NonScriptProjectsFilter"
+            id="org.eclipse.gdt.ui.navigator.NonScriptProjectsFilter"/>
+      	<filter
+            targetId="org.eclipse.dltk.ui.ScriptExplorer"
+            name="GoalShowClosedProjects"
+            enabled="false"
+            description="Hide Closed Projects"
+            class="org.eclipse.dltk.internal.ui.filters.ClosedProjectFilter"
+            id="org.eclipse.gdt.ui.navigator.ClosedProjectFilter"/>
+    </extension>
+ 	   	
+	<extension point="org.eclipse.core.resources.markers"
+   		id="org.eclipse.gdt.debug.GoalLineBreakpointMarker" >
+    	<super type="org.eclipse.core.resources.marker"/>
+      	<persistent value="false"/>
+	</extension>
+   	<extension point="org.eclipse.core.resources.markers"
+    	id="org.eclipse.gdt.debug.GoalConditionalBreakpointMarker" >
+    	<super type="org.eclipse.core.resources.marker"/>
+      	<persistent value="false"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type
+			name="org.eclipse.gdt.debug.linebreakpoint" 
+         	markerType="org.eclipse.gdt.debug.GoalLineBreakpointMarker"/>
+     	<type
+     		name="org.eclipse.gdt.debug.conditionalbreakpoint" 
+         	markerType="org.eclipse.gdt.debug.GoalConditionalBreakpointMarker"/>
+   </extension> 
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification
+            annotationType="org.eclipse.gdt.debug.linebreakpoint" 
+            label="GOAL Line Breakpoint"
+            presentationLayer="1"
+			textPreferenceKey="linebreakIndication"
+            textPreferenceValue="false"
+            colorPreferenceKey="linebreakIndicationColor"
+            colorPreferenceValue="255,0,128"
+            showInNextPrevDropdownToolbarActionKey="showLinebreakInNextPrevDropdownToolbarAction"
+            showInNextPrevDropdownToolbarAction="true"
+            isGoToNextNavigationTargetKey="isLinebreakGoToNextNavigationTarget"
+            isGoToNextNavigationTarget="false"
+            isGoToPreviousNavigationTargetKey="isLinebreakGoToPreviousNavigationTarget"
+            isGoToPreviousNavigationTarget="false"
+            overviewRulerPreferenceKey="linebreakIndicationInOverviewRuler"
+            overviewRulerPreferenceValue="false"
+            verticalRulerPreferenceKey="linebreakIndicationInVerticalRuler"
+            verticalRulerPreferenceValue="true"
+            highlightPreferenceKey="linebreakIndicationHighlighting"
+            highlightPreferenceValue="false"
+            contributesToHeader="true"/>
+	    <specification
+            annotationType="org.eclipse.gdt.debug.conditionalbreakpoint" 
+            label="GOAL Conditional Breakpoint"
+            presentationLayer="1"
+			textPreferenceKey="conditionalbreakIndication"
+            textPreferenceValue="false"
+            colorPreferenceKey="conditionalbreakIndicationColor"
+            colorPreferenceValue="244,200,45"
+            showInNextPrevDropdownToolbarActionKey="showConditionalbreakInNextPrevDropdownToolbarAction"
+            showInNextPrevDropdownToolbarAction="true"
+            isGoToNextNavigationTargetKey="isConditionalbreakGoToNextNavigationTarget"
+            isGoToNextNavigationTarget="false"
+            isGoToPreviousNavigationTargetKey="isConditionalbreakGoToPreviousNavigationTarget"
+            isGoToPreviousNavigationTarget="false"
+            overviewRulerPreferenceKey="conditionalbreakIndicationInOverviewRuler"
+            overviewRulerPreferenceValue="false"
+            verticalRulerPreferenceKey="conditionalbreakIndicationInVerticalRuler"
+            verticalRulerPreferenceValue="true"
+            highlightPreferenceKey="conditionalbreakIndicationHighlighting"
+            highlightPreferenceValue="false"
+            contributesToHeader="true"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerImageProviders">
+      	<imageprovider
+        	markertype="org.eclipse.gdt.debug.GoalLineBreakpointMarker"
+            icon="icons/stop.png"
+        	id="org.eclipse.gdt.debug.GoalLineBreakpointMarkerProvider"/>
+      	<imageprovider
+            markertype="org.eclipse.gdt.debug.GoalConditionalBreakpointMarker"
+            icon="icons/restart.png"
+        	id="org.eclipse.gdt.debug.GoalLineBreakpointMarkerProvider"/>
+   	</extension>
+   	
+	<extension point="org.eclipse.debug.core.breakpoints">
+  		<breakpoint
+        	markerType="org.eclipse.gdt.debug.GoalLineBreakpointMarker"
+            class="org.eclipse.gdt.debug.GoalLineBreakpoint"
+            id="org.eclipse.gdt.debug.lineBreakpoint"/>
+    	<breakpoint
+        	markerType="org.eclipse.gdt.debug.GoalConditionalBreakpointMarker"
+            class="org.eclipse.gdt.debug.GoalConditionalBreakpoint"
+            id="org.eclipse.gdt.debug.conditionalBreakpoint"/>
+   	</extension>
+   	
+    <extension point="org.eclipse.core.runtime.adapters">
+    	<factory 
+    		class="org.eclipse.gdt.debug.GoalBreakpointAdapterFactory"
+       		adaptableType="org.eclipse.ui.texteditor.ITextEditor">
+       			<adapter type="org.eclipse.debug.ui.actions.IToggleBreakpointsTarget"/>
+    	</factory>
+   	</extension>
+    
+    <extension point="org.eclipse.help.toc">
+    	<toc file="toc.xml" primary="true"/>
+       	<toc file="tocreference.xml"/>
+    </extension>
+    
+    <extension point="org.eclipse.dltk.ui.folding">
+    	<blockProvider
+    		class="org.eclipse.gdt.editor.GoalFoldingBlockProvider"
+            nature="org.eclipse.gdt.nature"/>
+        <blockProvider
+    		class="org.eclipse.gdt.editor.GoalFoldingCommentProvider"
+            nature="org.eclipse.gdt.nature"/>
+        <structureProvider
+        	class="org.eclipse.dltk.ui.text.folding.DelegatingFoldingStructureProvider"
+            nature="org.eclipse.gdt.nature"/>
+    </extension>
+    
+    <extension point="org.eclipse.dltk.debug.scriptDebugModel">
+    	<debugModel
+    		debugModelId="org.eclipse.dltk.debug.goalModel"
+            natureId="org.eclipse.gdt.nature"
+            debugToolkit="org.eclipse.gdt.debug.GoalDebugToolkit"
+            typeFactory="org.eclipse.gdt.debug.GoalTypeFactory"/>
+   	</extension>
+   	
+   	<extension point="org.eclipse.dltk.debug.ui.language">
+    	<language
+      		class="org.eclipse.gdt.debug.ui.GoalDebugUILanguageToolkit"
+      		nature="org.eclipse.gdt.nature"/>
+  	</extension>
+  	
+  	<extension point="org.eclipse.debug.ui.debugModelPresentations">
+    	<debugModelPresentation
+        	class="org.eclipse.gdt.debug.ui.GoalDebugModelPresentation"
+        	id="org.eclipse.dltk.debug.goalModel"/>
+    </extension>
+    
+    <extension point="org.eclipse.dltk.launching.debuggingEngine">
+    	<engineContribution
+    		natureId="org.eclipse.gdt.nature">
+         		<selector class="org.eclipse.gdt.launch.GoalDebuggingEngineSelector"/>
+         		<engine
+        			class="org.eclipse.gdt.debug.GoalDebuggerRunnerFactory"
+        			description="GOAL Debugging Engine"
+        			id="org.eclipse.gdt.debugger"
+        			name="GOAL Debugging Engine"
+        			priority="0"/>
+      	</engineContribution>
+   	</extension>
+   	
+   	<extension point="org.eclipse.core.expressions.definitions">
+    	<definition id="org.eclipse.gdt.activeEditor">
+        	<with variable="activeEditorId">
+            	<equals value="org.eclipse.gdt.editor"/>
+         	</with>
+      	</definition>
+ 	</extension>
+   	
+   	<extension point="org.eclipse.ui.actionSets">
+    	<actionSet
+        	label="GOAL History Actions"
+            visible="false"
+            id="org.eclipse.gdt.debug.history.actionSet">
+       			<action
+               		id="org.eclipse.gdt.debug.history.stepBack"
+               		class="org.eclipse.gdt.debug.history.BackCommandActionDelegate"
+               		label="History Back"
+               		toolbarPath="org.eclipse.gdt.debug.history.toolbar/stepBackGroup"/>
+       			<action
+               		id="org.eclipse.gdt.debug.history.stepForward"
+               		class="org.eclipse.gdt.debug.history.ForwardCommandActionDelegate"
+               		label="History Forward"
+               		toolbarPath="org.eclipse.gdt.debug.history.toolbar/stepForwardGroup"/>
+       			<action
+               		id="org.eclipse.gdt.debug.history.lookup"
+               		class="org.eclipse.gdt.debug.history.LookupCommandActionDelegate"
+               		label="History Lookup"
+               		toolbarPath="org.eclipse.gdt.debug.history.toolbar/lookupGroup"/>
+       			<action
+               		id="org.eclipse.gdt.debug.history.explanation"
+               		class="org.eclipse.gdt.debug.history.ExplanationCommandActionDelegate"
+               		label="History Explanation"
+               		toolbarPath="org.eclipse.gdt.debug.history.toolbar/explanationGroup"/>
+      	</actionSet>
+   	</extension>
+   
+	<extension point="org.eclipse.ui.menus">
+    	<menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+        	<toolbar id="org.eclipse.gdt.debug.history.toolbar" label="GOAL History Actions">
+            	<separator name="stepBackGroup"/>
+            	<separator name="stepForwardGroup"/>
+            	<separator name="lookupGroup"/>
+            	<separator name="explanationGroup"/>
+            	<visibleWhen>
+			    	<reference definitionId="org.eclipse.gdt.activeEditor"/>
+	            </visibleWhen>
+          	</toolbar>
+       	</menuContribution>
+   	</extension>
+   
+	<extension point="org.eclipse.ui.commands">
+    	<command
+        	name="History Back"
+            categoryId="org.eclipse.debug.ui.category.run"
+            description="GOAL History Back"
+            id="org.eclipse.gdt.debug.history.Back"
+            defaultHandler="org.eclipse.gdt.debug.history.BackCommandHandler"/>
+    	<command
+        	name="History Forward"
+            categoryId="org.eclipse.debug.ui.category.run"
+            description="GOAL History Forward"
+            id="org.eclipse.gdt.debug.history.Forward"
+            defaultHandler="org.eclipse.gdt.debug.history.ForwardCommandHandler"/>
+    	<command
+        	name="History Lookup"
+            categoryId="org.eclipse.debug.ui.category.run"
+            description="GOAL History Lookup"
+            id="org.eclipse.gdt.debug.history.Lookup"
+            defaultHandler="org.eclipse.gdt.debug.history.LookupCommandHandler"/>
+    	<command
+        	name="History Explanation"
+            categoryId="org.eclipse.debug.ui.category.run"
+            description="GOAL History Explanation"
+            id="org.eclipse.gdt.debug.history.Explanation"
+            defaultHandler="org.eclipse.gdt.debug.history.ExplanationCommandHandler"/>
+   </extension>
+</plugin>

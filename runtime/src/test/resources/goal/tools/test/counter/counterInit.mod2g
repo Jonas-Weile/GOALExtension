@@ -1,0 +1,5 @@
+use counter as knowledge.
+
+module counterInit {
+	if true then insert(counter(0)) + adopt(counter(100)).
+}

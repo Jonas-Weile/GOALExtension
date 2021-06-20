@@ -1,0 +1,10 @@
+use pl.age as knowledge.
+
+exit=always.
+
+module test_PARAMETER_NEVER_USED(X, Y) {
+	if true then print("this is").
+	if true then {
+		if bel( age(X, 42) ) then print(X).
+	}
+}

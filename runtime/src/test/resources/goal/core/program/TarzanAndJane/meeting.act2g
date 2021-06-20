@@ -1,0 +1,12 @@
+use meeting as knowledge.
+
+% write meeting in calendar
+define	createMeeting(Date, Time, Duration, Attendees) as internal with
+	pre{
+		not(meeting_conflict(Date, Time, Duration, Attendees))
+		}
+
+	post{
+		meeting(Date, Time, Duration, Attendees)
+		}
+		

@@ -1,0 +1,6 @@
+uses blocksworld.bwknowledge as knowledge.
+uses age as beliefs.
+
+module test_USES_INSTEAD_OF_USE {
+	if true then print("hello").
+}

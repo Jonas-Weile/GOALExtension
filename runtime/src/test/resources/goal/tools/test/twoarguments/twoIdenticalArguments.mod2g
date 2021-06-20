@@ -1,0 +1,4 @@
+use moduleTwoArguments as knowledge.
+module twoIdenticalArguments(Arg,Arg){
+	if true then insert(twoIdenticalArguments(Arg,Arg)) + insert(twoIdenticalArgumentsDone).
+}

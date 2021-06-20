@@ -1,0 +1,8 @@
+use pl.age as knowledge.
+
+define macro(X,Y,Z) as bel(age(X, Y), age(Z, Y)).
+define macro(A,B,C) as bel(age(A, B)), goal(age(A, C)).
+
+module test_MACRO_DUPLICATE_NAME {
+	if macro(X, Y, Z) then delete(age(X, Y)) + insert(age(X, Z)) + print("happy birthday").
+}

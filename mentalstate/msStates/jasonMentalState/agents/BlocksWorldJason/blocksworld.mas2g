@@ -1,0 +1,10 @@
+use "blocksworld-1.1.0.jar" as environment with start=[2,3,0,5,0,7,0], gui="true".
+
+define stackbuilder as agent {
+	use stackBuilder as main module.
+	use stackEvents as event module.
+}
+
+launchpolicy{
+	when * launch stackbuilder.
+}

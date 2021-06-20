@@ -1,0 +1,5 @@
+use gtlt as knowledge.
+
+module gtlt {
+	if true then exit-module.
+}

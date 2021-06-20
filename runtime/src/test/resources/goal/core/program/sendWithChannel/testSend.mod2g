@@ -1,0 +1,7 @@
+use result as knowledge.
+exit = noaction.
+
+module testSend {
+	if a-goal(sent(Y)) then (mychannel).send(message(Y)) + insert(sent(Y)).
+	if bel(sent(Y)), (_).sent(message(Y)) then insert(result(ok)).
+}

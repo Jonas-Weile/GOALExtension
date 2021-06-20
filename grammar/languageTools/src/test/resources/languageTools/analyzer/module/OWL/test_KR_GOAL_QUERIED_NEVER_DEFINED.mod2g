@@ -1,0 +1,6 @@
+use family as knowledge.
+use owlaction.
+
+module beliefqry {
+	if goal(:p) then action2.
+}

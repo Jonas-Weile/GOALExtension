@@ -1,0 +1,6 @@
+use pl.pqr as knowledge.
+
+module test_RULE_MISSING_CONDITION {
+	if then exit-module.
+	if bel(p) then print("hello").
+}

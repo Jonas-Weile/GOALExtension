@@ -1,0 +1,6 @@
+use incorrectMasUnderTest.
+use moduleUnderTest.
+
+fibonaci {
+	do moduleUnderTest(identifier, 42, 0.42, function(id,id,id)).
+}

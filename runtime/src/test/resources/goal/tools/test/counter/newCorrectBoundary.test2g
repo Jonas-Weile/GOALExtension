@@ -1,0 +1,14 @@
+use counter.
+use counterInit.
+use counterMain.
+use counter as knowledge.
+
+test counterMain with
+	pre { }
+	in { always bel(counter(X), X >= 0, X =< 10). }
+	post { not(bel(true)) }
+
+counter {
+	do counterInit.
+	do counterMain until bel(counter(10)).
+}

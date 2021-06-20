@@ -1,0 +1,16 @@
+init module{
+knowledge{tradrIndivrdf.owl;
+	onto:Image(?x) ^ onto:reference(?x,?t) -> onto:showOnMap(?x,"true")
+}
+actionspec{
+	printText(?x) {
+		pre{onto:Team(?x)}
+		post{onto:Team(?x)}
+	}
+}
+}
+main module [exit = nogoals] ]{
+	program{
+		if bel(onto:showOnMap(?x,"true")) then printText(?x).
+	}
+}

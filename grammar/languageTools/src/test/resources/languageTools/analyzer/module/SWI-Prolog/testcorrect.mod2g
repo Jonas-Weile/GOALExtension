@@ -1,0 +1,14 @@
+use blocksworld.bwknowledge as knowledge.
+use blocksworld.bwbeliefs, pl.age as beliefs.
+use blocksworld.bw.
+learnbel (on/2,clear/1).
+learngoal (on(X,Y)).
+
+% start
+module testcorrect(X) {
+	if (X).bel(on(a,b), clear(Y)) then move(X,Y).
+	%if not(bel(test)) then insert(test) + allother.send?(test).
+	%if bel(age(Agent,41)), (Agent).sent!(test) then allother.send!(test).
+	if self.bel(above(B,Y); B=Y) then testcorrect(a).
+}
+% end

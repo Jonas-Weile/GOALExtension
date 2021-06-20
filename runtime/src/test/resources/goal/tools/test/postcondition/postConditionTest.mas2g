@@ -1,0 +1,7 @@
+define postConditionAgent as agent {
+	use postCondition as main module.
+}
+
+launchpolicy {
+	launch postConditionAgent.
+}

@@ -1,0 +1,6 @@
+use family as knowledge.
+use owlaction.
+
+module beliefqry {
+	if bel( :Human(?x) ) then action2.
+}

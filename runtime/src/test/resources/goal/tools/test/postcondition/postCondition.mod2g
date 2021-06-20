@@ -1,0 +1,10 @@
+use postCondition as knowledge.
+use postConditionAction.
+exit = always.
+order = linearall.
+
+module postCondition {
+	if true then insert(test2).
+	if true then update.
+	if bel(test1) then delete(test1) + insert(test2).
+}

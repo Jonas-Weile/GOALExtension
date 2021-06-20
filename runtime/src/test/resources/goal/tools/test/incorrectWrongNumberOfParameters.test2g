@@ -1,0 +1,6 @@
+use correctMasUnderTest.
+use moduleUnderTest.
+
+fibonaci {
+	do moduleUnderTest.
+}

@@ -1,0 +1,6 @@
+use pl.age as knowledge.
+exit=always.
+
+module test_DUPLICATE_PARAMETER(X, X) {
+	if true then print(X).
+}

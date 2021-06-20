@@ -1,0 +1,12 @@
+use HelloWorld10x as mas.
+use counter as knowledge.
+use helloWorld10x as module.
+
+test helloWorld10x with
+	pre{ bel(nrOfPrintedLines(0)), goal(nrOfPrintedLines(1000)) }
+	in{ never bel(nrOfPrintedLines(X), X < 0, X > 1000). }
+	post{ bel(nrOfPrintedLines(1000)) }
+
+helloWorldAgent {
+	do helloWorld10x.
+}

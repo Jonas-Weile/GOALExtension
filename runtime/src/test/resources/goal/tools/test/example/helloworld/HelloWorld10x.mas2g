@@ -1,0 +1,11 @@
+use "HelloWorldEnvironment-1.2.3.jar" as environment.
+
+define helloWorldAgent as agent {
+	use helloWorld10x as main module.
+	use updateCounter as event module.
+	use initCounter as init module.
+}
+
+launchpolicy {
+	when * launch helloWorldAgent.
+}

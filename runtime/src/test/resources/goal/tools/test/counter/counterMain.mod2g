@@ -1,0 +1,6 @@
+use counter as knowledge.
+exit = nogoals.
+
+module counterMain {
+	if bel(counter(X), Y is X+1) then print(X) + insert(counter(Y)) + delete(counter(X)).
+}

@@ -1,0 +1,10 @@
+use dummy as knowledge.
+exit=always.
+order=linear.
+
+module anomodule {
+	if true then {
+		if bel(false) then insert(result(ko)).
+	}
+	if true then insert(result(ok)).
+}

@@ -1,0 +1,7 @@
+define agt as agent {
+	use agt as main module.
+}
+
+launchpolicy {
+   launch agt.
+}

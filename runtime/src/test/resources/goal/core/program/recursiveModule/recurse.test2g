@@ -1,0 +1,11 @@
+use recurse as mas.
+use recurse as module.
+use prolog as knowledge.
+
+test recurse with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+recurse {
+	do recurse.
+}

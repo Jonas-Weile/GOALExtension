@@ -1,0 +1,11 @@
+use prolog as knowledge.
+order=linearall.
+
+% notice that the X in the macro is the module parameter.
+define m(Z) as bel(not(Z==-4178327), X==1).
+
+module f(X) {
+	if bel(X==1) then print("entered module f").
+	if m(1) then insert(result(failure)).
+	if not(bel(result(failure))) then insert(result(ok)). 
+}

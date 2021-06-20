@@ -1,0 +1,11 @@
+use testselect as mas.
+use testselect as module.
+use result as knowledge.
+
+test testselect with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+testselect {
+	do testselect.
+}

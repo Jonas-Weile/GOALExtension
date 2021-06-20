@@ -1,0 +1,9 @@
+/.project
+/target/
+/.settings/
+/.classpath
+/settings.yaml
+/pom.xml.versionsBackup
+/bin/
+/.idea/
+/stardog-license-key.bin

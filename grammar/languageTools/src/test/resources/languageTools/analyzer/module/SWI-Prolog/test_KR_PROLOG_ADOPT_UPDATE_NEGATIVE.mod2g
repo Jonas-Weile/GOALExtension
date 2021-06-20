@@ -1,0 +1,5 @@
+use blocksworld.bwbeliefs as beliefs.
+
+module test_KR_PROLOG_ADOPT_UPDATE_NEGATIVE {
+	if bel( on(a,table) ) then adopt(on(a,b), not(on(a,c))).
+}

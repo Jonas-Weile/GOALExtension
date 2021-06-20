@@ -1,0 +1,8 @@
+use family as knowledge.
+
+module mod {
+	if true then send(:Danny).
+	if true then some.send(:Danny).
+	if true then someother.send(:Danny).
+	if true then this.send(:Danny).
+}

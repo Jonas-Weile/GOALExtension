@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.bitbucket.goalhub.krTools</groupId>
+	<artifactId>krLanguages</artifactId>
+	<parent>
+		<groupId>org.bitbucket.goalhub</groupId>
+		<artifactId>krTools</artifactId>
+		<version>1.4.0</version>
+	</parent>
+	<packaging>pom</packaging>
+
+	<description>Knowledge representation technologies that support the KR interface defined in the Knowledge Representation Tools project.</description>
+	
+	<modules>
+		<module>swiprolog</module>
+		<module>swiprologlibs</module>
+		<!--<module>jason</module> 
+		<module>owlrepo</module> 
+		<module>tuprolog</module> -->
+	</modules>
+</project>

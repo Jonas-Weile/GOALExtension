@@ -1,0 +1,10 @@
+use prolog as knowledge.
+use aspec as actionspec.
+
+exit=always.
+order=linearall.
+
+module agt {
+	if bel(true) then insert(result(ok)).
+	if bel(X=1, Y=2) then action(X).
+}

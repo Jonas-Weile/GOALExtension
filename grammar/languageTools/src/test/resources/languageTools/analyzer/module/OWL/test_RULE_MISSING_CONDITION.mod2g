@@ -1,0 +1,6 @@
+use family as knowledge.
+
+module mod {
+	if then exit-module.
+	if bel(?x) then print("hello"^^"xsd:string").
+}

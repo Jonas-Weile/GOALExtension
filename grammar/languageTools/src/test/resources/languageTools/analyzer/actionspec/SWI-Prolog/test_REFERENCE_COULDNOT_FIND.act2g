@@ -1,0 +1,3 @@
+use nonExistingreference as knowledge.
+
+define skip with pre { true } post { true }

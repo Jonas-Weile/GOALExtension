@@ -1,0 +1,6 @@
+use family as knowledge.
+
+module test_empty() {
+	if true then insert(:Person(:Susan)) .
+	if bel( :Person(?x) ) then print(?x) .
+}

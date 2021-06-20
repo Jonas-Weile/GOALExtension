@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GOAL Eclipse
+Bundle-SymbolicName: org.eclipse.gdt;singleton:=true
+Bundle-Version: 3.2.0.qualifier
+Bundle-Activator: org.eclipse.gdt.Activator
+Bundle-Vendor: VU Social AI
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.0",
+ org.eclipse.ui;bundle-version="3.0.0",
+ org.eclipse.ui.editors;bundle-version="3.8.0",
+ org.eclipse.ui.ide;bundle-version="3.9.0",
+ org.eclipse.ui.console;bundle-version="3.5.0",
+ org.eclipse.dltk.core;bundle-version="6.1.0",
+ org.eclipse.dltk.ui;bundle-version="6.1.0",
+ org.eclipse.dltk.launching;bundle-version="6.1.0",
+ org.eclipse.dltk.debug;bundle-version="6.1.0",
+ org.eclipse.dltk.debug.ui;bundle-version="6.1.0",
+ org.eclipse.jface.text;bundle-version="3.8.0",
+ org.eclipse.debug.ui;bundle-version="3.9.0",
+ org.eclipse.e4.ui.css.swt.theme;bundle-version="0.1.0",
+ org.eclipse.nebula.widgets.nattable.core;bundle-version="2.0.0",
+ org.eclipse.nebula.widgets.nattable.extension.glazedlists;bundle-version="2.0.0",
+ ca.odell.glazedlists;bundle-version="1.11.0",
+ ar.com.tadp.prolog;bundle-version="2.0.2",
+ org.eclipse.dltk.dbgp.debugger;bundle-version="1.1.0",
+ org.bitbucket.goalhub.runtime.shaded;bundle-version="2.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: .
+Bundle-ActivationPolicy: lazy

@@ -1,0 +1,3 @@
+module test_KR_COULDNOT_RESOLVE {
+	if true then print("hello").
+}

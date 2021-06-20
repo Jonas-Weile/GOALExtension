@@ -1,0 +1,5 @@
+use nonExistingReference.
+
+module printHello {
+	if true then print("hello"^^"xsd:string").
+}

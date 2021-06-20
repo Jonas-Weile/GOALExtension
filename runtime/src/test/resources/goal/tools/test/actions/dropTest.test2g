@@ -1,0 +1,13 @@
+use dropTest.
+use dropModule.
+use testgoal as knowledge.
+timeout = 1.
+
+test dropModule with
+	pre { true }
+	in { eventually goal(test). }
+	post { not(goal(true)) }
+
+dropAgent {
+	do dropModule.
+}

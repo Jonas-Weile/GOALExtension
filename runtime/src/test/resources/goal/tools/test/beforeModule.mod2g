@@ -1,0 +1,5 @@
+use fibonaci as knowledge.
+
+module beforeModule {
+	if bel(not(beforeModule)) then insert(beforeModule).
+}

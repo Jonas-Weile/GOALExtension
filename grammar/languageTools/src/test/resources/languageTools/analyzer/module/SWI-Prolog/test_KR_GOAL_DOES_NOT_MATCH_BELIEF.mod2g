@@ -1,0 +1,6 @@
+use pl.age as goals.
+use dummyMove.
+
+module test_KR_GOAL_DOES_NOT_MATCH_BELIEF {
+	if goal(age(_,_)) then move.
+}

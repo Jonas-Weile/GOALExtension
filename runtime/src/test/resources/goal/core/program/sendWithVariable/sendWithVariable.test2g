@@ -1,0 +1,11 @@
+use sendWithVariable as mas.
+use testUntilResult as module.
+use result as knowledge.
+
+test testUntilResult with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+sendQ {
+	do testUntilResult.
+}

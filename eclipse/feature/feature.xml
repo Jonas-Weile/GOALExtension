@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="GOALeclipseFeature"
+      label="GOAL Eclipse"
+      version="2.2.0.qualifier"
+      provider-name="VU Social AI"
+      plugin="org.eclipse.gdt">
+
+   <description url="https://goalapl.atlassian.net/wiki">
+      GOAL is an agent programming language for developing cognitive agents. GOAL agents derive their choice of action from their beliefs and goals. The language facilitates the development of autonomous decision-making agents that are part of a multi-agent system and that interact with their environment. The language provides an intuitive programming framework based on common folk psychological notions and basic practical reasoning.
+   </description>
+
+   <copyright>
+      © Social AI Group, Vrije Universiteit Amsterdam, 2020
+   </copyright>
+
+   <license url="http://fsf.org">
+      GOAL is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses.
+
+Additional conditions
+
+Redistribution and use of the GOAL software in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+(1) Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
+
+(2) Redistributions in binary form must reproduce the above copyright notice and this list of conditions in the documentation and other materials provided with the distribution. 
+
+(3) Neither the name of the Vrije Universiteit nor the names of the software authors or contributors may be used to endorse or promote products derived from this software without specific prior written permission. 
+
+(4) Any deviations from these conditions require written permission from the copyright holder in advance
+This software uses third party software components, each with its own license. You find their respective licenses in the &quot;license&quot; directory that will be installed. Below is a short, non-exhaustive overview.
+
+GOAL core
+
+(1) The SWI Prolog kernel is used un-modified, and is under the LGPL license.
+
+(2) A large number of system-dependent dynamic linked libraries, to our knowledge all falling under the LGPL license.
+
+(3) antlr v4 © Terence Parr, All rights reserved.
+
+(4) Apache commons cli and Apache commons io uses a Apache license v2.0.
+
+(5) snake yaml uses a Apache license v2.0.
+
+Example environments
+
+(1) the elevator simulator uses a LGPL license.
+
+(2) Blocksworld all rights reserved Rick Wagner at the University of Southern California. Only educational use.
+
+(3) Tic-Tac-Toe uses a GPL v2 license.
+
+(4) BW4T uses the Repast Suite Licenses.
+   </license>
+
+   <url>
+      <update label="GOAL Eclipse" url="https://dl.bintray.com/goalhub/GOAL"/>
+      <discovery label="DLTK" url="http://download.eclipse.org/technology/dltk/updates-dev/latest"/>
+      <discovery label="NatTable" url="http://download.eclipse.org/nattable/snapshots/latest/repository"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.editors" version="3.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface.text" version="3.8.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.search" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.css.swt.theme" version="0.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.core" version="6.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.ui" version="6.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.launching" version="6.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.debug.ui" version="6.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.console" version="6.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.console.ui" version="6.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.debug" version="6.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.nebula.widgets.nattable.core" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.nebula.widgets.nattable.extension.glazedlists" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="ca.odell.glazedlists" version="1.11.0" match="greaterOrEqual"/>
+      <import plugin="ar.com.tadp.prolog" version="2.0.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.dltk.dbgp.debugger" version="1.1.0" match="greaterOrEqual"/>
+      <import plugin="org.bitbucket.goalhub.runtime.shaded" version="2.2.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="ar.com.tadp.prolog"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.gdt"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.eclipse.dltk.dbgp.debugger"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.bitbucket.goalhub.runtime.shaded"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ca.odell.glazedlists"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.nebula.widgets.nattable.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,9 @@
+use result as knowledge.
+
+exit = nogoals.
+order = linearall.
+
+module quotedAtom {
+	if bel(not(in(X))) then insert(in('Plàcé')).
+	if bel(in(X), atom(X), X=='Plàcé') then insert(result(ok)).
+}

@@ -1,0 +1,5 @@
+use counter as knowledge.
+
+module printCounter {
+	if bel(counter(X), atom_concat('counter = ', X, Y)) then print(Y).
+}

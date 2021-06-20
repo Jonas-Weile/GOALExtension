@@ -1,0 +1,9 @@
+use ScriptKnowledge as knowledge.
+
+% The action printText(Text) expects a string of the form "..." as argument.
+% The action can always be performed and has no other effect than printing
+% the string Text to the standard output.
+define	printText(X) with
+			pre{ true }
+			post{ true }
+		

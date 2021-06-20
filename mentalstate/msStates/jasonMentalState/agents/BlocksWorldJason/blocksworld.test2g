@@ -1,0 +1,15 @@
+use blocksworld.
+use blocksworld as knowledge.
+use stackBuilder.
+use build.
+
+test stackBuilder with
+	pre { not(bel(tower(['b3','b2','b1']))) }
+	in { always bel(on('b1','table')).
+		 eventually bel(on('b2','table')). }
+	post { bel(tower(['b3','b2','b1'])) }
+	
+stackbuilder {
+	do build(['b2','b3','b1']).
+	do stackBuilder.
+}

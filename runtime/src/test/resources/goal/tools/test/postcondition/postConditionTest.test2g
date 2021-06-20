@@ -1,0 +1,23 @@
+use postConditionTest.
+use postCondition.
+use postConditionAction.
+use postCondition as knowledge.
+timeout = 10. %seconds
+
+test postCondition with
+	pre { not(bel(test1)), not(bel(test2)) }
+	in { % verify that we initially insert fact test2.
+		eventually bel(test2).
+		% verify that post-condition inserts fact test1.
+		eventually bel(test1).
+		% verify that post-condition deletes fact test2.
+		eventually not(bel(test2)).
+		% verify that post-condition is atomic update.
+		always not(bel(test1, test2)).
+		% verify done operator
+		eventually done(update). }
+	post { not(bel(test1)), bel(test2) }
+
+postConditionAgent {
+	do postCondition.
+}

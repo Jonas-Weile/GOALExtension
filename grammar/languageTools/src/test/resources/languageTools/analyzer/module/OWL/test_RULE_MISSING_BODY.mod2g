@@ -1,0 +1,6 @@
+use family as knowledge.
+
+module mod {
+	if bel(?x) then.
+	if bel(?y) then print("hello"^^"xsd:string").
+}

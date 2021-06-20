@@ -1,0 +1,6 @@
+use family as knowledge.
+use pl.age as beliefs.
+
+module mod {
+	if bel( :hasAge(?x, ?y) ) then print("happy birthday"^^"xsd:string").
+}

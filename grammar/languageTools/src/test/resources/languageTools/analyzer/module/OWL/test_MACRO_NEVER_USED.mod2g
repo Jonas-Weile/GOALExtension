@@ -1,0 +1,7 @@
+use family as knowledge.
+
+define doNotWantToBeThisAge(?A,?B,?C) as bel(:hasAge(?A, ?B)), goal(:hasAge(?A, ?C) ^ swrlb:differentFrom(?C,?B)).
+
+module mod {
+	if true then print("happy birthday"^^"xsd:string").
+}

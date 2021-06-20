@@ -1,0 +1,10 @@
+use result as knowledge.
+use testParameterFilter.
+exit = nogoals.
+
+module moduleParameterFilter {
+	if bel( result(X) ) then exit-module.
+
+	% do module call with parameter.
+	if bel( X=12, Y=15 ) then testParameterFilter(Y).
+}

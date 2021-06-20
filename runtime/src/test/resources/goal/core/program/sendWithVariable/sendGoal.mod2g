@@ -1,0 +1,5 @@
+use result as knowledge.
+
+module sendGoal {
+	if true then adopt(sent('I am going to Room_C1')).
+}

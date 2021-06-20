@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/GOALeclipseFeature_2.2.0.qualifier.jar" id="GOALeclipseFeature" version="2.2.0.qualifier">
+      <category name="org.eclipse.gdt"/>
+   </feature>
+   <category-def name="org.eclipse.gdt" label="GOAL Agent Programming"/>
+   <iu>
+        <category name="org.eclipse.gdt"/>
+        <query>
+            <expression type="match">providedCapabilities.exists(p | p.namespace == 'osgi.bundle')</expression>
+        </query>
+    </iu>
+</site>

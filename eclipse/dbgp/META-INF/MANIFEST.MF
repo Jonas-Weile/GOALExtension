@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dynamic Languages DBGp Debugger Core
+Bundle-SymbolicName: org.eclipse.dltk.dbgp.debugger
+Bundle-Version: 1.1.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.dltk.dbgp.debugger;
+  uses:="org.eclipse.dltk.dbgp.internal,
+   org.eclipse.dltk.dbgp.debugger.packet.sender.status,
+   org.eclipse.dltk.dbgp.debugger.packet.sender,
+   org.eclipse.dltk.dbgp.debugger.debugger,
+   org.eclipse.dltk.dbgp.debugger.internal.packet.receiver,
+   org.eclipse.dltk.dbgp.debugger.debugger.event,
+   org.eclipse.dltk.dbgp.debugger.packet.sender.response",
+ org.eclipse.dltk.dbgp.debugger.debugger;uses:="org.eclipse.dltk.dbgp.debugger,org.eclipse.dltk.dbgp.debugger.debugger.event",
+ org.eclipse.dltk.dbgp.debugger.debugger.event;uses:="org.eclipse.dltk.dbgp.debugger.debugger",
+ org.eclipse.dltk.dbgp.debugger.internal.debugger.event;uses:="org.eclipse.dltk.dbgp.debugger.debugger,org.eclipse.dltk.dbgp.debugger.debugger.event",
+ org.eclipse.dltk.dbgp.debugger.internal.packet.receiver;uses:="org.eclipse.dltk.dbgp.internal,org.eclipse.dltk.dbgp,org.eclipse.dltk.dbgp.debugger",
+ org.eclipse.dltk.dbgp.debugger.internal.packet.sender;uses:="org.eclipse.dltk.dbgp.internal,org.eclipse.dltk.dbgp.debugger.packet.sender,org.eclipse.dltk.dbgp.debugger",
+ org.eclipse.dltk.dbgp.debugger.internal.packet.utils,
+ org.eclipse.dltk.dbgp.debugger.packet.sender,
+ org.eclipse.dltk.dbgp.debugger.packet.sender.response;
+  uses:="org.eclipse.dltk.dbgp.debugger.packet.sender,
+   org.eclipse.dltk.dbgp,
+   org.eclipse.dltk.dbgp.debugger,
+   org.eclipse.dltk.dbgp.debugger.debugger",
+ org.eclipse.dltk.dbgp.debugger.packet.sender.status;
+  uses:="org.eclipse.dltk.dbgp,
+   org.eclipse.dltk.dbgp.debugger,
+   org.eclipse.dltk.dbgp.debugger.debugger.event,
+   org.eclipse.dltk.dbgp.debugger.packet.sender.response",
+ org.eclipse.dltk.dbgp.debugger.packet.sender.stream;uses:="org.eclipse.dltk.dbgp.debugger.packet.sender"
+Require-Bundle: org.eclipse.dltk.debug,
+ org.eclipse.core.runtime
+Bundle-Vendor: Freemarker Team

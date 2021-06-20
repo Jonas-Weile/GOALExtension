@@ -1,0 +1,15 @@
+block(X) :- on(X, _).
+clear(X) :- block(X) & not( on(_, X) ).
+clear(table).
+
+tower([X]) :- on(X, table).
+tower([X, Y| T]) :- on(X,Y) & tower([Y| T]).
+
+available([]).
+available(T) :- tower(T).
+available([X|T]) :- clear(X) & available(T). 
+available([X,Y|T]) :- on(Y,X) & available([Y|T]).
+
+subTower(_,[]).
+subTower(T,T).
+subTower([X|T],SubT) :- subTower(T,SubT).

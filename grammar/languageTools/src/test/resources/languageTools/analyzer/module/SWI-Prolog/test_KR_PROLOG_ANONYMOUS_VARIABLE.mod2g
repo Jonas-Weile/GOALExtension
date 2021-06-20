@@ -1,0 +1,7 @@
+use pl.age as knowledge.
+
+define macro(_) as bel( true ).
+
+module test_KR_PROLOG_ANONYMOUS_VARIABLE(_) {
+	if macro(X) then exit-module.
+}

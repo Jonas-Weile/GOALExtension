@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension id="nature" point="org.eclipse.core.resources.natures">
+		<runtime>
+			<run class="ar.com.tadp.prolog.core.PrologNature"/>
+		</runtime>
+	</extension>
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+			base-type="org.eclipse.core.runtime.text"
+			file-extensions="pl,pro,p"
+			id="ar.com.tadp.prolog.content-type"
+			name="Prolog content type"
+			priority="high">
+		</content-type>
+	</extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/simpleP.ico"
+            natureId="ar.com.tadp.prolog.nature"
+            id="ar.com.tadp.prolog.nature.image">
+      </image>
+   </extension>
+   
+	<extension point="org.eclipse.dltk.core.language">
+		<language
+			class="ar.com.tadp.prolog.core.PrologLanguageToolkit"
+			nature="ar.com.tadp.prolog.nature"
+			priority="0">
+		</language>
+	</extension>
+	
+	<extension point="org.eclipse.dltk.ui.language">
+		<language
+			class="ar.com.tadp.prolog.core.ui.PrologUILanguageToolkit"
+			nature="ar.com.tadp.prolog.nature"
+			priority="0">
+		</language>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<wizard 
+			category="ar.com.tadp.prolog.category"
+			class="ar.com.tadp.prolog.core.ui.PrologProjectWizard:ar.com.tadp.prolog.nature"
+			icon="icons/newProject3.ico"
+			id="ar.com.tadp.prolog.newProject.wizard"
+			name="Prolog Project"
+			project="true">
+     <description>Create a Prolog Project</description>
+		</wizard>
+		<category
+			id="ar.com.tadp.prolog.category"
+			name="Prolog">
+		</category>
+	</extension>	
+	
+	<extension point="org.eclipse.dltk.launching.interpreterInstallTypes">
+		<interpreterInstallType
+			class="ar.com.tadp.prolog.core.interpreter.SWIPrologInstallType"
+			id="ar.com.tadp.prolog.core.interpreter.SWIPrologInstallType">
+		</interpreterInstallType>
+	</extension>
+
+	<extension point="org.eclipse.dltk.core.sourceParsers">
+		<parserContribution natureId="ar.com.tadp.prolog.nature">
+			<parser
+				class="ar.com.tadp.prolog.core.parser.PrologSourceParserFactory"
+				description="Prolog Source parser" id="ar.com.tadp.prolog.sourceParser"
+				name="sourceParser.name" priority="0" />
+		</parserContribution>
+	</extension>
+	<extension point="org.eclipse.dltk.core.sourceElementParsers">
+		<parser
+			class="ar.com.tadp.prolog.core.parser.PrologSourceElementParser"
+			nature="ar.com.tadp.prolog.nature" priority="1">
+		</parser>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+      <editor class="ar.com.tadp.prolog.core.ui.editor.PrologEditor"
+            default="false"
+            icon="icons/prologFile3.ico"
+            id="ar.com.tadp.prolog.ui.editor"
+            name="Prolog Editor">
+         <contentTypeBinding contentTypeId="ar.com.tadp.prolog.content-type"/>
+      </editor>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="ar.com.tadp.prolog.core.ui.preferences.PrologUIPreferenceInitializer">
+      </initializer>
+   </extension>
+   
+   <extension point="org.eclipse.search.searchPages">
+      <page
+            canSearchEnclosingProjects="true"
+            class="ar.com.tadp.prolog.core.search.PrologSearchPage"
+            enabled="true"
+            extensions="pl:90,pro:90,p:90"
+            icon="/icons/search_obj.gif"
+            id="ar.com.tadp.ui.PrologSearchPage"
+            label="Prolog Search"
+            showScopeSection="true"
+            sizeHint="460,160">
+      </page>
+	</extension>
+
+	<extension point="org.eclipse.dltk.core.search">
+	   <searchFactory
+	         class="ar.com.tadp.prolog.core.search.PrologSearchFactory"
+	         nature="ar.com.tadp.prolog.nature"
+	         priority="0">
+	   </searchFactory>
+	</extension>
+	
+	<extension point="org.eclipse.ui.actionSets">
+		<actionSet
+			id="ar.com.tadp.prolog.actionSet"
+			label="Prolog">
+			<action
+				class="ar.com.tadp.prolog.core.actions.PrologOpenTypeAction"
+				definitionId="ar.com.tadp.prolog.ui.navigate.open.type"
+				icon="icons/opentype.gif"
+				id="openType"
+				label="Prolog Open type"
+				menubarPath="navigate/open.ext2"
+				toolbarPath="org.eclipse.search.searchActionSet/Search"
+				tooltip="Prolog Open Type">
+			</action>
+	   </actionSet>
+	</extension>
+	
+	<extension point="org.eclipse.dltk.core.selectionEngine">
+	   <selectionEngine
+	         class="ar.com.tadp.prolog.core.selection.PrologSelectionEngine"
+	         nature="ar.com.tadp.prolog.nature"
+	         priority="0">
+	   </selectionEngine>
+	</extension>
+	
+	<extension point="org.eclipse.dltk.ui.scriptDocumentationProviders">
+     <provider
+           class="ar.com.tadp.prolog.core.selection.PrologCommentDocumentationProvider"
+           id="ar.com.tadp.prolog.core.selection.PrologCommentDocumentationProvider"
+           nature="ar.com.tadp.prolog.nature"/>
+	</extension>
+
+	<extension point="org.eclipse.dltk.core.completionEngine">
+	   <completionEngine
+	         class="ar.com.tadp.prolog.core.completion.PrologCompletionEngine"
+	         nature="ar.com.tadp.prolog.nature"
+	         priority="0">
+	   </completionEngine>
+	</extension>
+	<extension point="org.eclipse.dltk.ui.scriptCompletionProposalComputer"
+		id="PrologTypeCompletionProposalComputer">
+		<scriptCompletionProposalComputer
+			class="ar.com.tadp.prolog.core.completion.PrologCompletionProposalComputer"
+			categoryId="org.eclipse.ui.scriptTypeProposalCategory"
+			toolkitId="ar.com.tadp.prolog.nature">
+			<partition type="__dftl_partition_content_type"/>
+		</scriptCompletionProposalComputer>
+	</extension>
+
+	<extension point="org.eclipse.dltk.ui.language">
+      <language
+            class="ar.com.tadp.prolog.core.ui.PrologUILanguageToolkit2"
+            nature="ar.com.tadp.prolog.nature"
+            priority="1">
+      </language>
+   </extension>
+   
+	<extension point="org.eclipse.ui.preferencePages">
+		<page 
+			class="org.eclipse.ui.internal.dialogs.EmptyPreferencePage"
+			id="ar.com.tadp.prolog.preferences.root"
+			name="Prolog"/>
+		<page 
+			class="ar.com.tadp.prolog.core.interpreter.ui.PrologInterpreterPreferencePage"
+			id="ar.com.tadp.prolog.preferences.interpreters"
+			category="ar.com.tadp.prolog.preferences.root"
+			name="Interpreters"/>
+	</extension>
+	<extension point="org.eclipse.dltk.core.buildParticipant">
+		<buildParticipant
+			class="ar.com.tadp.prolog.core.builder.BuildParticipantFactory"
+			id="ar.com.tadp.prolog.builder.prologParticipant"
+			name="ar.com.tadp.prolog.builder.prologParticipant"
+			nature="ar.com.tadp.prolog.nature">
+		</buildParticipant>
+	</extension>
+	<extension point="org.eclipse.ui.propertyPages">
+	    <page
+			class="ar.com.tadp.prolog.core.ui.preferences.PrologBuildPathPropertyPage"
+			id="ar.com.tadp.prolog.preferences.buildPathProperties"
+			name="Prolog Build Path">
+			<enabledWhen>
+				<adapt type="org.eclipse.core.resources.IProject">
+					<test
+						property="org.eclipse.core.resources.projectNature"
+						value="ar.com.tadp.prolog.nature">
+					</test>
+				</adapt>
+			</enabledWhen>
+		</page>
+	</extension>
+	<extension point="org.eclipse.dltk.ui.buildpathContainerPage">
+		<buildpathContainerPage	
+			class="ar.com.tadp.prolog.core.debug.ui.interpreters.PrologInterpreterContainerWizardPage"
+			id="ar.com.tadp.prolog.launching.INTERPRETER_CONTAINER"
+			name="Prolog Interpreter Libraries"
+			nature="ar.com.tadp.prolog.nature" />
+	</extension>
+
+	<extension point="org.eclipse.ui.console.consoleFactories">
+		<consoleFactory
+			class="ar.com.tadp.prolog.core.console.ui.PrologConsoleFactory"
+			icon="icons/console_obj.gif"
+			label="Prolog Console" />
+	</extension>
+
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution id="prolog.projectMenu"	objectClass="org.eclipse.core.resources.IProject" adaptable="true">
+			<menu
+				id="prolog.menu"
+				label="ProDT"
+				path="additions">
+				<separator
+				name="group">
+				</separator>
+			</menu>
+			<action
+				class="ar.com.tadp.prolog.core.actions.AddPrologCapabilitiesToProjectAction"
+				id="ar.com.tadp.prolog.action1"
+				label="Add Prolog Capabilities"
+				menubarPath="prolog.menu/group">
+			</action>
+			<action
+				class="ar.com.tadp.prolog.core.actions.RemovePrologCapabilitiesToProjectAction"
+				id="ar.com.tadp.prolog.action2"
+				label="Remove Prolog Capabilities"
+				menubarPath="prolog.menu/group">
+			</action>
+		</objectContribution>
+		<objectContribution id="prolog.fileMenu" objectClass="org.eclipse.dltk.internal.core.SourceModule">
+			<menu
+				id="prolog.menu"
+				label="ProDT"
+				path="additions">
+				<separator
+				name="group">
+				</separator>
+			</menu>
+			<action
+				class="ar.com.tadp.prolog.core.actions.ConsultInConsoleAction"
+				id="ar.com.tadp.prolog.action1"
+				label="Consult in Console"
+				menubarPath="prolog.menu/group">
+			</action>
+		</objectContribution>
+		<objectContribution id="prolog.fileMenu" objectClass="org.eclipse.ui.part.FileEditorInput">
+			<menu
+				id="prolog.menu"
+				label="ProDT"
+				path="additions">
+				<separator
+				name="group">
+				</separator>
+			</menu>
+			<action
+				class="ar.com.tadp.prolog.core.actions.ConsultInConsoleAction"
+				id="ar.com.tadp.prolog.action1"
+				label="Consult in Console"
+				menubarPath="prolog.menu/group">
+			</action>
+		</objectContribution>
+	</extension>
+	<extension point="org.eclipse.ui.perspectives">
+		<perspective
+	          class="ar.com.tadp.prolog.core.ui.PrologPerspectiveFactory"
+	          icon="icons/prologFile3.ico"
+	          id="ar.com.tadp.prolog.PrologPerspective"
+	          name="Prolog">
+	    </perspective>
+	</extension>
+
+	<extension point="org.eclipse.ui.contexts">
+		<context name="Editing Prolog Source" description="Editing Prolog Source Context"
+			parentId="org.eclipse.dltk.ui.scriptEditorScope" 
+			id="ar.com.tadp.prolog.ui.editor.prologEditorScope" />
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+		<command
+			name="Open Prolog Module"
+            description="Open Prolog Module in a Prolog Editor"
+            categoryId="org.eclipse.ui.category.navigate"
+            id="ar.com.tadp.prolog.ui.navigate.open.type">
+		</command>
+		<command
+			name="Comment"
+			description="Comment Selection"
+			defaultHandler="ar.com.tadp.prolog.core.actions.keyBindingHandlers.CommentSelectionHandler"
+			id="ar.com.tadp.prolog.ui.editor.comment.selection">
+		</command>
+	</extension>
+</plugin>

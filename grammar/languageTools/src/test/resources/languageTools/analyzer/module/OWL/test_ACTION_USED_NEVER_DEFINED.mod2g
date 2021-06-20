@@ -1,0 +1,9 @@
+use family as knowledge.
+use owlaction.
+
+module aging {
+	if bel( :hasAge(?x,?y) ) then actionUndefined(?x,?y) .
+	if bel( :hasAge(?x,?y) ) then {
+		if true then action3(?y).
+	}
+}

@@ -1,0 +1,8 @@
+define timerAgent as agent {
+    use timerinit as init.
+	use timermain as main.
+}
+
+launchpolicy {
+    launch timerAgent. 
+}

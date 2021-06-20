@@ -1,0 +1,7 @@
+use pl.age as knowledge.
+
+define doNotWantToBeThisAge(A,B,C) as bel(age(A, B)), goal(age(A, C), not(C=B)).
+
+module test_MACRO_NEVER_USED {
+	if true then print("happy birthday").
+}

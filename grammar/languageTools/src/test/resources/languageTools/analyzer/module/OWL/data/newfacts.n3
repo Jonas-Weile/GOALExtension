@@ -1,0 +1,11 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://www.example.org/family#> .
+
+<http://www.example.org/family#Susan>
+	 rdf:type	:Female;
+	 :hasAge	"33".
+	 
+<http://www.example.org/family#Danny>
+	rdf:type	:Male ;
+	:hasAge		"5";
+	:hasParent	:Susan .

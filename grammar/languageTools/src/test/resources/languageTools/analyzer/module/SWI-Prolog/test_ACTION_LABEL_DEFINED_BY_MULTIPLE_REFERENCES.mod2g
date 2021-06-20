@@ -1,0 +1,8 @@
+use tower.bwknowledge as knowledge.
+use tower.bwbeliefs as beliefs.
+use tower.move.
+use dummyMove.
+
+module test_ACTION_LABEL_DEFINED_BY_MULTIPLE_REFERENCES {
+	if bel( holding(_) ) then move.
+}

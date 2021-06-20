@@ -1,0 +1,7 @@
+define moduleAgent as agent {
+	use twoArguments as main module.
+}
+
+launchpolicy {
+	launch moduleAgent.
+}

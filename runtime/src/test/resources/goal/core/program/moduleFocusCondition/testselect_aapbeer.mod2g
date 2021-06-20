@@ -1,0 +1,7 @@
+use result as knowledge.
+use testselect_aapkat.
+
+module aapbeer {
+	if bel(true) then insert(result(failure)).
+	if not(bel(true)) then aapkat.
+}

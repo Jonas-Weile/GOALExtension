@@ -1,0 +1,5 @@
+use pl.age as beliefs.
+
+module mod3(Z) {
+	if true then log(Z).
+}

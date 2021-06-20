@@ -1,0 +1,9 @@
+use dummy_environment as environment with key=value.
+
+define dummy as agent {
+	use decisions as main module.
+}
+
+launchpolicy{
+	when * launch dummy with name=bot, max=1, name=connect.
+}

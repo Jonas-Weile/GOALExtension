@@ -1,0 +1,6 @@
+use pl.age as knowledge.
+use family as beliefs.
+
+module test_KR_USE_OF_DIFFERENT_KRIS {
+	if bel( age(X, 42) ) then print("happy birthday").
+}

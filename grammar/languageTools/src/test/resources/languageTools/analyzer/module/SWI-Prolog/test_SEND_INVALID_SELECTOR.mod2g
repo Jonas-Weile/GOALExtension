@@ -1,0 +1,8 @@
+use pl.age as knowledge.
+
+module test_SEND_INVALID_SELECTOR {
+	if true then send(belief).
+	if true then some.send(belief).
+	if true then someother.send(belief).
+	if true then this.send(belief).
+}

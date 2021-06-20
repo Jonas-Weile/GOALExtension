@@ -1,0 +1,11 @@
+use anomodule as mas.
+use anomodule as module.
+use dummy as knowledge.
+
+test anomodule with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+anoModule {
+	do anomodule.
+}

@@ -1,0 +1,8 @@
+define sender as agent {
+	use sendGoal as init.
+	use testUntilResult as main.
+}
+
+launchpolicy {
+	launch sender.
+}

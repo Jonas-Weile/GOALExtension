@@ -1,0 +1,9 @@
+use pl.age as knowledge.
+use dummyMove.
+
+module test_ACTION_CALL_UNBOUND_VARIABLE {
+	if true then print(X).
+	if true then (_).send(hello).
+	% Prolog specific: anonymous variables cannot be bound.
+	if bel( age(_, Y) ) then action1(_).
+}

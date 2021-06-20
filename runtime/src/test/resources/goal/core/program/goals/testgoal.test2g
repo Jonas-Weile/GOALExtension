@@ -1,0 +1,11 @@
+use testgoal as mas.
+use testgoal as module.
+use know as knowledge.
+
+test testgoal with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+testGoalAgent {
+	do testgoal.
+}

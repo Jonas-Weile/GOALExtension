@@ -1,0 +1,8 @@
+use pl.know as knowledge.
+
+% incorrect
+define move with pre { true } post { true }
+
+define action1(X) with pre { age(X,_) } post { true }
+
+define action2 with pre { true } post { true }

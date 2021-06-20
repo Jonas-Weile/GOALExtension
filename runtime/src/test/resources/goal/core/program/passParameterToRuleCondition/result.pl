@@ -1,0 +1,1 @@
+:-dynamic result/1, aap/0, beer/0, kat/0, koe/0, mies/0, noot/0.

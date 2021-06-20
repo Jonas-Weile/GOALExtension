@@ -1,0 +1,5 @@
+use family as knowledge.
+
+module mod {
+	if bel( :hasAge(?x, ?y) ) then insert().
+}

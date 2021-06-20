@@ -1,0 +1,5 @@
+use pl.age as knowledge.
+
+module {
+	if true then print("hello").
+}

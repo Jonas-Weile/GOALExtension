@@ -1,0 +1,11 @@
+use moduleTwoArguments.
+use moduleTwoArguments as knowledge.
+use twoArguments.
+
+test twoArguments(A,B) with
+	post { bel(twoArguments(1,2)), bel(twoArgumentsDone) }
+
+moduleAgent {
+	do twoArguments(1,2).
+	% TODO: test twoIdenticalArguments?!
+}

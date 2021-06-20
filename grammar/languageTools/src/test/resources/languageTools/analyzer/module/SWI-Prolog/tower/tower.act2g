@@ -1,0 +1,20 @@
+use bwknowledge as knowledge.
+	
+% A block X can be pickep up if it is clear and the gripper is not holding a block already.
+% Picking up a block takes time because the gripper must be moved to the block first (pickup
+% is a durative action). For this reason, the postcondition is empty (true) instead of holding(X).
+% That the gripper is holding a block will be derived from the percepts which the agent receives.
+define pickup(X) with
+	pre{ clear(X), not( holding(_) ) } 
+	post{ true }
+		
+% A block X can be put down on a block Y if the gripper is holding X and block Y is clear.
+% Putting down a block takes time because the gripper must be moved to block Y.
+define putdown(X, Y) with
+	pre { holding(X), clear(Y) }
+	post { true }
+		
+% The 'nil' action can always be performed. It moves the gripper back to its 'home position', i.e.
+% to the left upper corner. Moving the gripper to its home position takes time. The postcondition
+% is empty for this reason but also because we do not (and cannot) keep track of the gripper's position.
+define nil with pre { true } post { true }

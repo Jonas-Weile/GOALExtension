@@ -1,0 +1,8 @@
+define counter as agent {
+	use counterInit as init module.
+	use counterMain as main module.
+}
+
+launchpolicy {
+	launch counter.
+}

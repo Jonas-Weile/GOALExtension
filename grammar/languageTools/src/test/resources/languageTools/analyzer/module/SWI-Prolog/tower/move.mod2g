@@ -1,0 +1,22 @@
+use bwknowledge as knowledge.
+use bwbeliefs as beliefs.
+use tower.
+
+% options
+order = linear.
+
+% macros
+define constructiveMove(X, Y) as a-goal( tower([X, Y | T]) ), bel( tower([Y | T]), clear(Y), (clear(X) ; holding(X)) ) .
+
+module move {
+	% pick up a block if you want to (and can).
+	if a-goal( holding(X) ) then pickup(X).
+		
+	% put a block you're holding down, ideally where you want it, but otherwise put it on the table.
+	if bel( holding(X) ) then {
+		if constructiveMove(X,Y) then putdown(X, Y).
+		if true then putdown(X, table).
+	}
+
+	if true then nil.
+}

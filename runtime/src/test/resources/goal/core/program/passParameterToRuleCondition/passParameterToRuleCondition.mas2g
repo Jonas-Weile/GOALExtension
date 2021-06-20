@@ -1,0 +1,7 @@
+define passParameterTest as agent {
+	use passParameterToRuleCondition as main module.
+}
+
+launchpolicy {
+	launch passParameterTest.
+}

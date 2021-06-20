@@ -1,0 +1,13 @@
+%Failing: minimal version.
+use correctMasUnderTest.
+use moduleUnderTest.
+use fibonaci as knowledge.
+
+test moduleUnderTest(A,B,C,D) with
+	pre{ bel(not(beforeModule)) }
+	in{ never true. }
+	post{ bel(not(moduleUnderTest)) }
+
+fibonaci {
+	do moduleUnderTest(identifier, 42, 0.42, function).
+}

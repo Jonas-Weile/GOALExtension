@@ -1,0 +1,134 @@
+
+\documentclass{book}
+
+\usepackage{a4wide}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{relsize}
+\usepackage{subfig}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+
+\input{definitions.tex}
+
+
+
+\begin{document}
+
+\title{Runtime manual}
+\author{Koen V. Hindriks and Wouter Pasman}
+\maketitle
+
+%
+%
+%
+\setcounter{tocdepth}{3}
+
+
+
+
+%************************ STAND ALONE RUNNING ***************************
+%
+%
+%
+\chapter{Running in Stand-Alone Mode}\label{standalone}
+%
+This chapter explains how to use the \GOAL runtime to run GOAL in stand-alone mode (without GUI).
+This way you can use {\GOAL} from scripting
+languages like a shell script or bat script, or from your Java program.
+
+Stand-alone running always involves starting up a Java Virtual Machine (JVM)
+with the right environment settings. We first describe the required environment
+and then describe how to use this from a Java program or from a script.
+
+We assume you have downloaded the latest Runtime jar from \url{https://github.com/goalhub/runtime/releases}.  
+
+
+%
+%
+%
+\section{From Java}
+%
+Running a stand-alone MAS from Java is very simple: just create the
+goal.tools.Run object from Java and start it using this call 
+
+\code{new Run(new File(fileName)).run();}
+
+where fileName is the MAS file that you want to run.
+
+
+%
+%
+%
+\section{From the Command Line}
+%
+To run \GOAL stand-alone from the command line, the typical call looks like this:
+
+\begin{verbatim}
+java -cp runtime-...-shaded.jar goal.tools.Run <filename or directory>
+\end{verbatim}
+
+You can also use the \verb|simpleidemodules-...-shaded.jar| instead, just make sure you use the full 'shaded' jar.
+
+\noindent where \code{<filename or directory>} is the path to the MAS file or directory with MAS files you want to run.
+The tool has the following options:
+
+\begin{tabular}{p{4cm}p{10cm}}
+\hline
+
+ \code{-d,-{}-debug}           & Display out put from debugger while running agent\\
+ \code{-e}                           &Print messages from error\\
+ \code{-h,--help}                 &Displays this help\\
+ \code{-i}                           &Print messages from info\\
+ \code{-l <dir>}                           &Create log files. Writes to given directory, or to default log directory if not set.\\
+ \code{--license}               &Shows the license\\
+ \code{-p}                         &Print messages from parser\\
+ \code{-r,--repeats <number> }   &Number of times to repeat running all episodes\\
+ \code{--recursive}           & Recursively search for mas files\\
+\code{    --rmi <host>}        & Use RMI messaging middleware. Host is the location of the RMI server. Using "localhost" will initialize a RMI server\\
+\code{--timeout <seconds> } & Timeout of the multi-agent system.\\
+ \code{-v,--verbose }           & Print all messages\\
+\code{--version}                 & Shows the current version\\
+\code{ -w }                         &Print messages from warning\\
+ 
+\hline
+\end{tabular}
+
+
+%
+%
+%
+\section{Runtime Settings}
+%
+Some settings, e.g. used middleware, are used as set in the \code{settings.yaml} preferences file that is created after the first run in the directory where you installed the \code{runtime*.jar} file. These preferences can be changed using the GOAL IDE, by directly editing the file using a text editor, or programmatically.
+
+Please refer to the JavaDoc for programmatically changing the various preference settings inside the
+\code{goal.preferences} directory. There are preference
+settings for the CorePreferences, PMPreferences, the LoggingPreferences etc.
+Also notice the -w and -v options of the tool if you are looking for warning printouts.
+
+%
+%
+%
+\section{Batch Running}
+The \code{Run} command above allows you various variants for batch running. You can specify a
+directory containing multiple prepared MAS files, and/or you can request multiple runs of the MAS files. 
+
+To enable proper batch running, your setup has to meet two requirements:
+
+\begin{itemize}
+\item Your MAS terminates at some point. This happens when all agents have terminated, e.g. exited their main program section or were killed.
+\item Your environment resets the entities when it is killed and then restarted. This may seem natural but in
+some configurations (eg, BW4T), killing and restarting a local environment does not necessarily reset the
+real remote environment.
+\end{itemize}
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,7 @@
+use pl.age as knowledge.
+
+define macro(X,Y,Z) as bel(age(X, Y)).
+
+module test_MACRO_PARAMETERS_NOT_IN_DEFINITION {
+	if macro(X, Y, Z) then delete(age(X, Y)) + insert(age(X, Z)) + print("happy birthday").
+}

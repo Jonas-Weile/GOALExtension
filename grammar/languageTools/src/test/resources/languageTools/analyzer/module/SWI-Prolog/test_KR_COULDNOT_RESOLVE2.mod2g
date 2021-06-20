@@ -1,0 +1,6 @@
+use pl.age as knowledge.
+use family as knowledge.
+
+module test_KR_COULDNOT_RESOLVE2 {
+	if true then print("hello").
+}

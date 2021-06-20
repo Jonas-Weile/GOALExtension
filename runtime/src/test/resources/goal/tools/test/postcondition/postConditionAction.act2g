@@ -1,0 +1,5 @@
+use postCondition as knowledge.
+
+define update as internal with
+	pre{ true }
+	post{ test1, not(test2) }

@@ -1,0 +1,9 @@
+use "dummy\test.jar" as environment with key=value.
+
+define dummy as agent {
+	use decisions as main module.
+}
+
+launchpolicy{
+	when * launch dummy.
+}

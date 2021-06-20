@@ -1,0 +1,7 @@
+use family as knowledge.
+
+exit=always.
+
+module printTwo(?x, ?x) {
+	if true then print(?x).
+}

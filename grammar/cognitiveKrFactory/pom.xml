@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.bitbucket.goalhub.grammar</groupId>
+	<artifactId>cognitiveKrFactory</artifactId>
+	<parent>
+		<groupId>org.bitbucket.goalhub</groupId>
+		<artifactId>grammar</artifactId>
+		<version>2.2.0</version>
+	</parent>
+
+	<description>Cognitive KR Factory</description>
+	
+	<dependencies>
+		<dependency>
+			<groupId>${krGroup}</groupId>
+			<artifactId>krInterface</artifactId>
+			<version>${krVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${krGroup}</groupId>
+			<artifactId>krFactory</artifactId>
+			<version>${krVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${krGroup}.krLanguages</groupId>
+			<artifactId>swiprolog</artifactId>
+			<version>${krVersion}</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>com.github.goalhub.krTools.krLanguages</groupId>
+			<artifactId>owlrepo</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.goalhub.krTools.krLanguages</groupId>
+			<artifactId>jason</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.goalhub.krTools.krLanguages</groupId>
+			<artifactId>tuprolog</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>-->
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>cognitiveKrInterface</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}.cognitiveKrLanguages</groupId>
+			<artifactId>cognitiveSwiprolog</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<!--<dependency>
+				<groupId>com.github.goalhub.grammar.cognitiveKrLanguages</groupId>
+				<artifactId>cognitiveOwlrepo</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.github.goalhub.grammar.cognitiveKrLanguages</groupId>
+			<artifactId>cognitiveJason</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.github.goalhub.grammar.cognitiveKrLanguages</groupId>
+			<artifactId>cognitiveTuprolog</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>-->
+	</dependencies>
+</project>

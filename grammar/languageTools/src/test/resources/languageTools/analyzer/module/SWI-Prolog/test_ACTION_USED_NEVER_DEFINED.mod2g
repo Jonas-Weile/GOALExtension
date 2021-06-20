@@ -1,0 +1,13 @@
+use pl.age as knowledge.
+use dummyMove.
+use dummyMod1.
+use dummyMod3.
+
+module test_ACTION_USED_NEVER_DEFINED {
+	if bel( age(X,Y) ) then {
+		if bel( Z is Y + 20, not(age(V,Z)) ) then action1(X).
+		if true then action3(Y).
+	}
+	if bel( age(V,W) ) then mod1(V,W).
+	if bel( age(R,R)) then mod2(R).
+}

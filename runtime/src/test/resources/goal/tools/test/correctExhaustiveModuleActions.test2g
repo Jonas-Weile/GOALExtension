@@ -1,0 +1,11 @@
+%Correct: exhaustive example
+use correctMasUnderTest.
+use beforeModule.
+use moduleUnderTest.
+use afterModule.
+
+fibonaci {
+	do beforeModule.
+	do moduleUnderTest(identifier, 42, 0.42, function(id,id,id)).			
+	do afterModule(something,somethingElse).
+}

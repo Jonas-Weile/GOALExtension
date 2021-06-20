@@ -1,0 +1,11 @@
+use macro as mas.
+use macro as module.
+use prolog as knowledge.
+
+test macro with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+macro {
+	do macro.
+}

@@ -1,0 +1,6 @@
+use predicate as knowledge.
+use predicate as beliefs.
+
+module modulep {
+	if true then print("Hello, world!").
+}

@@ -1,0 +1,10 @@
+% Tests whether variable in post-condition is instantiated correctly.
+
+define postConditionVariable as agent {
+	use postConditionVariable as main.
+}
+
+launchpolicy {
+	launch postConditionVariable.
+}
+	

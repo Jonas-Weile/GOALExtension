@@ -1,0 +1,10 @@
+use family as knowledge.
+
+exit=always.
+
+module mod(?X, ?Y) {
+	if true then print("this is"^^"xsd:string").
+	if true then {
+		if bel( :hasAge(?Z, 42) ) then print(?X).
+	}
+}

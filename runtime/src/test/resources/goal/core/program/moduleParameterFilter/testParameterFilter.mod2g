@@ -1,0 +1,10 @@
+use result as knowledge.
+
+focus = new.
+exit = always.
+
+module testParameterFilter(Z) {
+	if bel(X==12) then exit-module.
+	if bel(Y==15) then exit-module.
+	if bel(Z==15) then insert(result(ok)).
+}

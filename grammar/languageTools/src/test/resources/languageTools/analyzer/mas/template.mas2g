@@ -1,0 +1,7 @@
+define agentname as agent {
+	use decisions as main.
+}
+
+launchpolicy{
+	launch agentname.
+}

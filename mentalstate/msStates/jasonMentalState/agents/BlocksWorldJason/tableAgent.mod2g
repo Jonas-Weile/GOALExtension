@@ -1,0 +1,17 @@
+% This agent moves blocks to the table or performs a skip action (which do nothing).
+
+use blocksworld as knowledge.
+use build.
+use clear as goals.
+
+exit = nogoals.
+
+% randomly select to move a block to the table (if possible) or to perform skip.
+order = random.
+
+% Decide on an action to perform.
+module main {
+		if bel( on(X,Y), clear(X) ) then move(X,table).
+		if true then skip.
+}
+

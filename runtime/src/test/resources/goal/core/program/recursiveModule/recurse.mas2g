@@ -1,0 +1,7 @@
+define recurse as agent {
+	use recurse as main module.
+}
+
+launchpolicy{
+   launch recurse.
+}

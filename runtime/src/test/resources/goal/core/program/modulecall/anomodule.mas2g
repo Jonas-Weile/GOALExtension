@@ -1,0 +1,7 @@
+define anoModule as agent {
+	use anomodule as main module.
+}
+
+launchpolicy {
+	launch anoModule.
+}

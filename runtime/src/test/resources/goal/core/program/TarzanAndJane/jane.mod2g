@@ -1,0 +1,31 @@
+use meeting as knowledge.
+use meeting as actionspec.
+use janeGoals as goals.
+use meetingBeliefs as beliefs.
+
+order=random.
+
+define not_yet_invited(Person, Date, Time, Duration, Attendees) as
+	goal(meeting(Date, Time, Duration, Attendees)), bel(member(Person, Attendees), not(Person = jane)),
+	not(bel(sentInvitation(Person,meeting(Date, Time, Duration, Attendees)))).
+
+define non_conflicting_meeting_invitation(Inviter, Date, Time, Duration, Attendees) as
+	bel(receivedInvitation(Inviter,meeting(Date, Time, Duration, Attendees)), not(meeting_conflict(Date, Time, Duration, Attendees))).
+
+define meeting_invitation_accepted_by_all(Date, Time, Duration, Attendees) as
+	goal(meeting(Date, Time, Duration, Attendees)), bel(del(Attendees, jane, Others), forall(member(X, Others), receivedAccept(X, meeting(Date, Time, Duration, Attendees)))).
+
+module jane {
+	if true then insert(result(ok)). % test result. jane is always fine with the result.
+
+	% send invitations
+	if not_yet_invited(Person, Date, Time, Dur, Att)
+		then (Person).send(invite(Date, Time, Dur, Att)) + insert(sentInvitation(Person, meeting(Date, Time, Dur, Att))).
+	
+	% create a meeting appointment in the calendar
+	if non_conflicting_meeting_invitation(Inviter, Date, Time, Dur, Att)
+		then createMeeting(Date, Time, Dur, Att) + delete(receivedInvitation(Inviter, meeting(Date, Time, Dur, Att))) + (Inviter).send(accept(Date, Time, Dur, Att)).
+	
+	if meeting_invitation_accepted_by_all(Date, Time, Dur, Att)
+		then createMeeting(Date, Time, Dur, Att).
+}

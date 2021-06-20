@@ -1,0 +1,5 @@
+use nonExistingReference as knowledge.
+
+module test_REFERENCE_COULDNOT_FIND {
+	if true then print("hello").
+}

@@ -1,0 +1,7 @@
+define fibonaci as agent {
+	use fibonaci as main module.
+}
+
+launchpolicy {
+	launch fibonaci.
+}

@@ -1,0 +1,5 @@
+%Correct: minimal version
+use correctMasUnderTest.
+
+fibonaci {
+}

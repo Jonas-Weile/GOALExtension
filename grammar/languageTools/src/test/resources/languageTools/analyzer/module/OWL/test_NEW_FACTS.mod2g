@@ -1,0 +1,8 @@
+use family as knowledge.
+use familyfacts as beliefs.
+use owlaction.
+
+module test_empty {
+	if bel(:Person(:Danny)) then insert(:hasMother(:Danny, :Susan)).
+	if true then mother(:Danny, :Susan).
+}

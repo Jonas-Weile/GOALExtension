@@ -1,0 +1,5 @@
+use pl.age as knowledge.
+
+module test_EXITMODULE_CANNOT_REACH {
+	if true then print("this is") + exit-module + print("dead code").
+}

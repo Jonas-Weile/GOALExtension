@@ -1,0 +1,11 @@
+use quotedAtom as mas.
+use quotedAtom as module.
+use result as knowledge.
+
+test quotedAtom with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+quotedAtom {
+	do quotedAtom.
+}

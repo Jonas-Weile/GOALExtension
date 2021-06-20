@@ -1,0 +1,10 @@
+use blocksworld as knowledge.
+
+define move(X, Y) with
+	pre{ myTurn & clear(X) & clear(Y) & on(X, Z) & not( on(X, Y) ) }
+	post{ not( on(X, Z) ) & on(X, Y) }
+
+define skip as internal with
+	pre { myTurn }
+	post { true }
+		

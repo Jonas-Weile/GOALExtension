@@ -1,0 +1,5 @@
+use blocksworld.bwknowledge as knowledge.
+
+define move(X, X) with
+	pre { clear(X), clear(Y), on(X,Y) }
+	post { true }

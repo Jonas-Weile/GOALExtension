@@ -1,0 +1,11 @@
+use blocksworld as knowledge.
+
+module stackEventsWithTurn {
+	forall percept(on(X, Y)), not(bel(on(X, Y))) do insert(on(X, Y)).
+	forall bel(on(X, Y)), not(percept(on(X, Y))) do delete(on(X, Y)).
+	
+	% swap the turn to the other side with each event cycle.
+	% only agents having the turn can do actions.
+	if bel(myTurn) then allother.send(yourTurn) + delete(myTurn).
+	if (Other).sent(yourTurn) then insert(myTurn).
+}

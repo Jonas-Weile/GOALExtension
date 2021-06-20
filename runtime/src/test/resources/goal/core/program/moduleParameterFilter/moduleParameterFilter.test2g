@@ -1,0 +1,11 @@
+use moduleParameterFilter as mas.
+use moduleParameterFilter as module.
+use result as knowledge.
+
+test moduleParameterFilter with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+passParameterTest {
+	do moduleParameterFilter.
+}

@@ -1,0 +1,16 @@
+
+define tarzan as agent {
+	use tarzan as main module.
+	use meetingEvents as event module.
+} 
+
+define jane as agent {
+	use jane as main module.
+	use meetingEvents as event module.
+}
+
+
+launchpolicy {
+    launch jane.
+	launch tarzan.
+}

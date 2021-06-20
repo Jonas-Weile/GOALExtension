@@ -1,0 +1,8 @@
+use data.newfamily as knowledge.
+use data.newfacts as beliefs.
+use data.newmodule.
+use owlaction.
+
+module persons {
+	if bel( :Person(?x) ^ :Person(?y) ) then mother(?x,?y).
+}

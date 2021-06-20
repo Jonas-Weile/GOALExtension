@@ -1,0 +1,8 @@
+use family as knowledge.
+
+exit=always.
+exit=never.
+
+module mod {
+	if true then print("this is"^^"xsd:string").
+}

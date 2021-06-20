@@ -1,0 +1,5 @@
+use family as knowledge.
+
+module mod {
+	if true then print("this is"^^"xsd:string") + exit-module + print("dead code"^^"xsd:string").
+}

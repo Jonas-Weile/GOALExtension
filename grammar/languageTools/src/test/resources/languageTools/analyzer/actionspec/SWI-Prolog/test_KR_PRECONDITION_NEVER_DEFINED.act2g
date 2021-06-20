@@ -1,0 +1,5 @@
+use blocksworld.bwbeliefs as knowledge.
+
+define move(X, Y) with
+	pre { clear(X), clear(Y), on(X, Y) }
+	post { true }

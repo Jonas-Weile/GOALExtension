@@ -1,0 +1,6 @@
+use family as knowledge.
+
+module mod {
+	if true then print(?x).
+	if true then (?x).send("hello"^^"xsd:string").
+}

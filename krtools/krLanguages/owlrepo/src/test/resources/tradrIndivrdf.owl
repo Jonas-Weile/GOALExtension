@@ -1,0 +1,2040 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY onto "http://www.semanticweb.org/ontologies/tradr#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/tradr#"
+     xml:base="http://www.semanticweb.org/ontologies/tradr"
+     xmlns:onto="http://www.semanticweb.org/ontologies/tradr#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/tradr"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#areaIdentifier -->
+
+    <owl:ObjectProperty rdf:about="&onto;areaIdentifier">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#belongsToTeam -->
+
+    <owl:ObjectProperty rdf:about="&onto;belongsToTeam">
+        <rdfs:domain rdf:resource="&onto;Actor"/>
+        <rdfs:range rdf:resource="&onto;Team"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasActorProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#controlsRobot -->
+
+    <owl:ObjectProperty rdf:about="&onto;controlsRobot">
+        <rdfs:range rdf:resource="&onto;Robot"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasRoleProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasActorEvent -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasActorEvent">
+        <rdfs:range rdf:resource="&onto;ActorEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasActorProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasActorProperty -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasActorProperty">
+        <rdfs:domain rdf:resource="&onto;Actor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasContent -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasContent">
+        <rdfs:domain rdf:resource="&onto;Location"/>
+        <rdfs:range rdf:resource="&onto;Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasEventActor -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasEventActor">
+        <rdfs:range rdf:resource="&onto;Actor"/>
+        <rdfs:domain rdf:resource="&onto;ActorEvent"/>
+        <owl:inverseOf rdf:resource="&onto;hasActorEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasEventProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasEventProperty -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasEventProperty">
+        <rdfs:domain rdf:resource="&onto;Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasEventTarget -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasEventTarget">
+        <rdfs:domain rdf:resource="&onto;ActorEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasEventProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasFinished -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasFinished">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasTaskEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasHappening -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasHappening">
+        <rdfs:domain rdf:resource="&onto;Disaster"/>
+        <rdfs:range rdf:resource="&onto;Happening"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasLocation -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasLocation">
+        <rdfs:range rdf:resource="&onto;Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasMessage -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasMessage">
+        <rdfs:domain rdf:resource="&onto;MessageEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasEventTarget"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasMessageEvent -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasMessageEvent">
+        <rdfs:range rdf:resource="&onto;MessageEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasActorEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasMission -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasMission">
+        <rdfs:range rdf:resource="&onto;Mission"/>
+        <rdfs:domain rdf:resource="&onto;Team"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasRoleProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasPlanned -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasPlanned">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasTaskEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasRole -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasRole">
+        <rdfs:domain rdf:resource="&onto;Actor"/>
+        <rdfs:range rdf:resource="&onto;Role"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasActorProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasRoleProperty -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasRoleProperty"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasSensed -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasSensed">
+        <rdfs:range rdf:resource="&onto;Object"/>
+        <rdfs:domain rdf:resource="&onto;SensingEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasEventTarget"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasSensingEvent -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasSensingEvent">
+        <rdfs:range rdf:resource="&onto;SensingEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasActorEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasStatus -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasStatus">
+        <rdfs:range rdf:resource="&onto;Status"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasTask -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasTask">
+        <rdfs:range rdf:resource="&onto;Task"/>
+        <rdfs:domain rdf:resource="&onto;TaskEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasEventTarget"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasTaskEvent -->
+
+    <owl:ObjectProperty rdf:about="&onto;hasTaskEvent">
+        <rdfs:range rdf:resource="&onto;TaskEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasActorEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#isExecuting -->
+
+    <owl:ObjectProperty rdf:about="&onto;isExecuting">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasTaskEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#isHeadOf -->
+
+    <owl:ObjectProperty rdf:about="&onto;isHeadOf">
+        <rdfs:range rdf:resource="&onto;Team"/>
+        <rdfs:domain rdf:resource="&onto;Team_leader"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;belongsToTeam"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#leadsTeam -->
+
+    <owl:ObjectProperty rdf:about="&onto;leadsTeam">
+        <rdfs:domain rdf:resource="&onto;Leader"/>
+        <rdfs:range rdf:resource="&onto;Team"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasRoleProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#moveToLocation -->
+
+    <owl:ObjectProperty rdf:about="&onto;moveToLocation">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasLocation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#areaIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="&onto;areaIdentifier"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#belongsToNTeam -->
+
+    <owl:DatatypeProperty rdf:about="&onto;belongsToNTeam">
+        <rdfs:domain rdf:resource="&onto;Actor"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#description -->
+
+    <owl:DatatypeProperty rdf:about="&onto;description">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasAge -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasAge">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&onto;Human"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasData -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasData"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasEndTime -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasEndTime">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasGPS -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasGPS">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasHeight -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasHeight">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasSize"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasID -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasIPAddress -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasIPAddress">
+        <rdfs:domain rdf:resource="&onto;Device"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasIdentity -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasIdentity"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasLength -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasLength">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasSize"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasName -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasName">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasNewAge -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasNewAge">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasIdentity"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasPlannedTime -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasPlannedTime">
+        <rdfs:domain rdf:resource="&onto;Task"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasPriority -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasPriority"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasSize -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasSize"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasStartTime -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasStartTime">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasTemperature -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasTemperature">
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasTime -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasTime">
+        <rdfs:domain rdf:resource="&onto;Event"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasTimestamp -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasTimestamp">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#hasWidth -->
+
+    <owl:DatatypeProperty rdf:about="&onto;hasWidth">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasSize"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#imageData -->
+
+    <owl:DatatypeProperty rdf:about="&onto;imageData">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasData"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#latitude -->
+
+    <owl:DatatypeProperty rdf:about="&onto;latitude">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasGPS"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#longitude -->
+
+    <owl:DatatypeProperty rdf:about="&onto;longitude">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasGPS"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#messageBody -->
+
+    <owl:DatatypeProperty rdf:about="&onto;messageBody">
+        <rdfs:domain rdf:resource="&onto;MessageEvent"/>
+        <rdfs:subPropertyOf rdf:resource="&onto;hasData"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#reference -->
+
+    <owl:DatatypeProperty rdf:about="&onto;reference">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasData"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#showOnMap -->
+
+    <owl:DatatypeProperty rdf:about="&onto;showOnMap">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#showToIR -->
+
+    <owl:DatatypeProperty rdf:about="&onto;showToIR">
+        <rdfs:subPropertyOf rdf:resource="&onto;showOnMap"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#showToOP -->
+
+    <owl:DatatypeProperty rdf:about="&onto;showToOP">
+        <rdfs:subPropertyOf rdf:resource="&onto;showOnMap"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#showToTL -->
+
+    <owl:DatatypeProperty rdf:about="&onto;showToTL">
+        <rdfs:subPropertyOf rdf:resource="&onto;showOnMap"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#showToUAVop -->
+
+    <owl:DatatypeProperty rdf:about="&onto;showToUAVop">
+        <rdfs:subPropertyOf rdf:resource="&onto;showToOP"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#showToUGVop -->
+
+    <owl:DatatypeProperty rdf:about="&onto;showToUGVop">
+        <rdfs:subPropertyOf rdf:resource="&onto;showToOP"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#videoFeed -->
+
+    <owl:DatatypeProperty rdf:about="&onto;videoFeed">
+        <rdfs:subPropertyOf rdf:resource="&onto;hasData"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Actor -->
+
+    <owl:Class rdf:about="&onto;Actor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#ActorEvent -->
+
+    <owl:Class rdf:about="&onto;ActorEvent">
+        <rdfs:subClassOf rdf:resource="&onto;Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Aerial_explorer -->
+
+    <owl:Class rdf:about="&onto;Aerial_explorer">
+        <rdfs:subClassOf rdf:resource="&onto;RobotRole"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Agency -->
+
+    <owl:Class rdf:about="&onto;Agency">
+        <rdfs:subClassOf rdf:resource="&onto;Actor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Area -->
+
+    <owl:Class rdf:about="&onto;Area">
+        <rdfs:subClassOf rdf:resource="&onto;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Assess -->
+
+    <owl:Class rdf:about="&onto;Assess">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Assistant -->
+
+    <owl:Class rdf:about="&onto;Assistant">
+        <rdfs:subClassOf rdf:resource="&onto;Firefighter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Attack -->
+
+    <owl:Class rdf:about="&onto;Attack">
+        <rdfs:subClassOf rdf:resource="&onto;Firefighter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Audio -->
+
+    <owl:Class rdf:about="&onto;Audio">
+        <rdfs:subClassOf rdf:resource="&onto;Datatype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Authorities -->
+
+    <owl:Class rdf:about="&onto;Authorities">
+        <rdfs:subClassOf rdf:resource="&onto;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Avalanche -->
+
+    <owl:Class rdf:about="&onto;Avalanche">
+        <rdfs:subClassOf rdf:resource="&onto;Geophysical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Bicycle -->
+
+    <owl:Class rdf:about="&onto;Bicycle">
+        <rdfs:subClassOf rdf:resource="&onto;Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Biological -->
+
+    <owl:Class rdf:about="&onto;Biological">
+        <rdfs:subClassOf rdf:resource="&onto;Natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#BuildingPart -->
+
+    <owl:Class rdf:about="&onto;BuildingPart">
+        <rdfs:subClassOf rdf:resource="&onto;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Car -->
+
+    <owl:Class rdf:about="&onto;Car">
+        <rdfs:subClassOf rdf:resource="&onto;Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Car_crash -->
+
+    <owl:Class rdf:about="&onto;Car_crash">
+        <rdfs:subClassOf rdf:resource="&onto;Transport_incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Chemical_leakage -->
+
+    <owl:Class rdf:about="&onto;Chemical_leakage">
+        <rdfs:subClassOf rdf:resource="&onto;Industrial_incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#CivilProtection -->
+
+    <owl:Class rdf:about="&onto;CivilProtection">
+        <rdfs:subClassOf rdf:resource="&onto;Authorities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Climatological -->
+
+    <owl:Class rdf:about="&onto;Climatological">
+        <rdfs:subClassOf rdf:resource="&onto;Natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Collapse -->
+
+    <owl:Class rdf:about="&onto;Collapse">
+        <rdfs:subClassOf rdf:resource="&onto;Happening"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Computer -->
+
+    <owl:Class rdf:about="&onto;Computer">
+        <rdfs:subClassOf rdf:resource="&onto;Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Data -->
+
+    <owl:Class rdf:about="&onto;Data"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Datatype -->
+
+    <owl:Class rdf:about="&onto;Datatype">
+        <rdfs:subClassOf rdf:resource="&onto;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Device -->
+
+    <owl:Class rdf:about="&onto;Device">
+        <rdfs:subClassOf rdf:resource="&onto;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Disaster -->
+
+    <owl:Class rdf:about="&onto;Disaster">
+        <rdfs:subClassOf rdf:resource="&onto;Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Door -->
+
+    <owl:Class rdf:about="&onto;Door">
+        <rdfs:subClassOf rdf:resource="&onto;BuildingPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Drought -->
+
+    <owl:Class rdf:about="&onto;Drought">
+        <rdfs:subClassOf rdf:resource="&onto;Climatological"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Earthquake -->
+
+    <owl:Class rdf:about="&onto;Earthquake">
+        <rdfs:subClassOf rdf:resource="&onto;Geophysical"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Epidemic -->
+
+    <owl:Class rdf:about="&onto;Epidemic">
+        <rdfs:subClassOf rdf:resource="&onto;Biological"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Event -->
+
+    <owl:Class rdf:about="&onto;Event"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Explore_Detect -->
+
+    <owl:Class rdf:about="&onto;Explore_Detect">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Explosion -->
+
+    <owl:Class rdf:about="&onto;Explosion">
+        <rdfs:subClassOf rdf:resource="&onto;Happening"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Extinguish -->
+
+    <owl:Class rdf:about="&onto;Extinguish">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Fire -->
+
+    <owl:Class rdf:about="&onto;Fire">
+        <rdfs:subClassOf rdf:resource="&onto;Human_Made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#FireOutbreak -->
+
+    <owl:Class rdf:about="&onto;FireOutbreak">
+        <rdfs:subClassOf rdf:resource="&onto;Happening"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Firefighter -->
+
+    <owl:Class rdf:about="&onto;Firefighter">
+        <rdfs:subClassOf rdf:resource="&onto;Infield_rescuer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#FirefighterTeam -->
+
+    <owl:Class rdf:about="&onto;FirefighterTeam">
+        <rdfs:subClassOf rdf:resource="&onto;Infield_rescuersTeam"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Flood -->
+
+    <owl:Class rdf:about="&onto;Flood">
+        <rdfs:subClassOf rdf:resource="&onto;Hydrological"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#GPS -->
+
+    <owl:Class rdf:about="&onto;GPS">
+        <rdfs:subClassOf rdf:resource="&onto;Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Gas_pipe -->
+
+    <owl:Class rdf:about="&onto;Gas_pipe">
+        <rdfs:subClassOf rdf:resource="&onto;Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Geophysical -->
+
+    <owl:Class rdf:about="&onto;Geophysical">
+        <rdfs:subClassOf rdf:resource="&onto;Natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#GoArea -->
+
+    <owl:Class rdf:about="&onto;GoArea">
+        <rdfs:subClassOf rdf:resource="&onto;Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#GoHome -->
+
+    <owl:Class rdf:about="&onto;GoHome">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Ground_explorer -->
+
+    <owl:Class rdf:about="&onto;Ground_explorer">
+        <rdfs:subClassOf rdf:resource="&onto;RobotRole"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Group_leader -->
+
+    <owl:Class rdf:about="&onto;Group_leader">
+        <rdfs:subClassOf rdf:resource="&onto;Leader"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Happening -->
+
+    <owl:Class rdf:about="&onto;Happening">
+        <rdfs:subClassOf rdf:resource="&onto;Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#High_voltage -->
+
+    <owl:Class rdf:about="&onto;High_voltage">
+        <rdfs:subClassOf rdf:resource="&onto;Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Hose -->
+
+    <owl:Class rdf:about="&onto;Hose">
+        <rdfs:subClassOf rdf:resource="&onto;Firefighter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Human -->
+
+    <owl:Class rdf:about="&onto;Human">
+        <rdfs:subClassOf rdf:resource="&onto;Actor"/>
+        <owl:disjointWith rdf:resource="&onto;Robot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Human_Made -->
+
+    <owl:Class rdf:about="&onto;Human_Made">
+        <rdfs:subClassOf rdf:resource="&onto;Disaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Hurricane -->
+
+    <owl:Class rdf:about="&onto;Hurricane">
+        <rdfs:subClassOf rdf:resource="&onto;Storm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Hydrological -->
+
+    <owl:Class rdf:about="&onto;Hydrological">
+        <rdfs:subClassOf rdf:resource="&onto;Natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Image -->
+
+    <owl:Class rdf:about="&onto;Image">
+        <rdfs:subClassOf rdf:resource="&onto;Datatype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Incident_officer -->
+
+    <owl:Class rdf:about="&onto;Incident_officer">
+        <rdfs:subClassOf rdf:resource="&onto;Officer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Industrial_Explosion -->
+
+    <owl:Class rdf:about="&onto;Industrial_Explosion">
+        <rdfs:subClassOf rdf:resource="&onto;Industrial_incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Industrial_incident -->
+
+    <owl:Class rdf:about="&onto;Industrial_incident">
+        <rdfs:subClassOf rdf:resource="&onto;Human_Made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Infield_rescuer -->
+
+    <owl:Class rdf:about="&onto;Infield_rescuer">
+        <rdfs:subClassOf rdf:resource="&onto;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Infield_rescuersTeam -->
+
+    <owl:Class rdf:about="&onto;Infield_rescuersTeam">
+        <rdfs:subClassOf rdf:resource="&onto;Team"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Information_officer -->
+
+    <owl:Class rdf:about="&onto;Information_officer">
+        <rdfs:subClassOf rdf:resource="&onto;Officer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#InfraRed -->
+
+    <owl:Class rdf:about="&onto;InfraRed">
+        <rdfs:subClassOf rdf:resource="&onto;Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Infrastructure -->
+
+    <owl:Class rdf:about="&onto;Infrastructure">
+        <rdfs:subClassOf rdf:resource="&onto;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Inland -->
+
+    <owl:Class rdf:about="&onto;Inland">
+        <rdfs:subClassOf rdf:resource="&onto;Flood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Inshore -->
+
+    <owl:Class rdf:about="&onto;Inshore">
+        <rdfs:subClassOf rdf:resource="&onto;Flood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Landslide -->
+
+    <owl:Class rdf:about="&onto;Landslide">
+        <rdfs:subClassOf rdf:resource="&onto;Avalanche"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Leader -->
+
+    <owl:Class rdf:about="&onto;Leader">
+        <rdfs:subClassOf rdf:resource="&onto;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Location -->
+
+    <owl:Class rdf:about="&onto;Location"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Manipulate -->
+
+    <owl:Class rdf:about="&onto;Manipulate">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Measure -->
+
+    <owl:Class rdf:about="&onto;Measure">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#MessageEvent -->
+
+    <owl:Class rdf:about="&onto;MessageEvent">
+        <rdfs:subClassOf rdf:resource="&onto;ActorEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Meteorological -->
+
+    <owl:Class rdf:about="&onto;Meteorological">
+        <rdfs:subClassOf rdf:resource="&onto;Natural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Military -->
+
+    <owl:Class rdf:about="&onto;Military">
+        <rdfs:subClassOf rdf:resource="&onto;Authorities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Mission -->
+
+    <owl:Class rdf:about="&onto;Mission">
+        <rdfs:subClassOf rdf:resource="&onto;Organisation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Monitor -->
+
+    <owl:Class rdf:about="&onto;Monitor">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Move -->
+
+    <owl:Class rdf:about="&onto;Move">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Natural -->
+
+    <owl:Class rdf:about="&onto;Natural">
+        <rdfs:subClassOf rdf:resource="&onto;Disaster"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#NoGoArea -->
+
+    <owl:Class rdf:about="&onto;NoGoArea">
+        <rdfs:subClassOf rdf:resource="&onto;Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Normalize -->
+
+    <owl:Class rdf:about="&onto;Normalize">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Object -->
+
+    <owl:Class rdf:about="&onto;Object"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Officer -->
+
+    <owl:Class rdf:about="&onto;Officer">
+        <rdfs:subClassOf rdf:resource="&onto;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Operator -->
+
+    <owl:Class rdf:about="&onto;Operator">
+        <rdfs:subClassOf rdf:resource="&onto;Firefighter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#OperatorsTeam -->
+
+    <owl:Class rdf:about="&onto;OperatorsTeam">
+        <rdfs:subClassOf rdf:resource="&onto;Team"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Organisation -->
+
+    <owl:Class rdf:about="&onto;Organisation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Paramedics -->
+
+    <owl:Class rdf:about="&onto;Paramedics">
+        <rdfs:subClassOf rdf:resource="&onto;Authorities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#ParamedicsTeam -->
+
+    <owl:Class rdf:about="&onto;ParamedicsTeam">
+        <rdfs:subClassOf rdf:resource="&onto;Infield_rescuersTeam"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Plane -->
+
+    <owl:Class rdf:about="&onto;Plane">
+        <rdfs:subClassOf rdf:resource="&onto;Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Plane_crash -->
+
+    <owl:Class rdf:about="&onto;Plane_crash">
+        <rdfs:subClassOf rdf:resource="&onto;Transport_incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Police -->
+
+    <owl:Class rdf:about="&onto;Police">
+        <rdfs:subClassOf rdf:resource="&onto;Authorities"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Power_cable -->
+
+    <owl:Class rdf:about="&onto;Power_cable">
+        <rdfs:subClassOf rdf:resource="&onto;Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Recharge -->
+
+    <owl:Class rdf:about="&onto;Recharge">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Rescue -->
+
+    <owl:Class rdf:about="&onto;Rescue">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Robot -->
+
+    <owl:Class rdf:about="&onto;Robot">
+        <rdfs:subClassOf rdf:resource="&onto;Actor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#RobotRole -->
+
+    <owl:Class rdf:about="&onto;RobotRole">
+        <rdfs:subClassOf rdf:resource="&onto;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#RobotTeam -->
+
+    <owl:Class rdf:about="&onto;RobotTeam">
+        <rdfs:subClassOf rdf:resource="&onto;Team"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Robot_operator -->
+
+    <owl:Class rdf:about="&onto;Robot_operator">
+        <rdfs:subClassOf rdf:resource="&onto;Role"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Role -->
+
+    <owl:Class rdf:about="&onto;Role">
+        <rdfs:subClassOf rdf:resource="&onto;Organisation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Roof -->
+
+    <owl:Class rdf:about="&onto;Roof">
+        <rdfs:subClassOf rdf:resource="&onto;BuildingPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Room -->
+
+    <owl:Class rdf:about="&onto;Room">
+        <rdfs:subClassOf rdf:resource="&onto;BuildingPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Rubble -->
+
+    <owl:Class rdf:about="&onto;Rubble">
+        <rdfs:subClassOf rdf:resource="&onto;BuildingPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Safety_officer -->
+
+    <owl:Class rdf:about="&onto;Safety_officer">
+        <rdfs:subClassOf rdf:resource="&onto;Officer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Search -->
+
+    <owl:Class rdf:about="&onto;Search">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#SensingEvent -->
+
+    <owl:Class rdf:about="&onto;SensingEvent">
+        <rdfs:subClassOf rdf:resource="&onto;ActorEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Sensor -->
+
+    <owl:Class rdf:about="&onto;Sensor">
+        <rdfs:subClassOf rdf:resource="&onto;Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Sewage_canal -->
+
+    <owl:Class rdf:about="&onto;Sewage_canal">
+        <rdfs:subClassOf rdf:resource="&onto;Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Ship -->
+
+    <owl:Class rdf:about="&onto;Ship">
+        <rdfs:subClassOf rdf:resource="&onto;Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Ship_accident -->
+
+    <owl:Class rdf:about="&onto;Ship_accident">
+        <rdfs:subClassOf rdf:resource="&onto;Transport_incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Smartphone -->
+
+    <owl:Class rdf:about="&onto;Smartphone">
+        <rdfs:subClassOf rdf:resource="&onto;Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#SmokeDetector -->
+
+    <owl:Class rdf:about="&onto;SmokeDetector">
+        <rdfs:subClassOf rdf:resource="&onto;Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Snow -->
+
+    <owl:Class rdf:about="&onto;Snow">
+        <rdfs:subClassOf rdf:resource="&onto;Avalanche"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Sortie -->
+
+    <owl:Class rdf:about="&onto;Sortie">
+        <rdfs:subClassOf rdf:resource="&onto;Mission"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Stabilize -->
+
+    <owl:Class rdf:about="&onto;Stabilize">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Stairs -->
+
+    <owl:Class rdf:about="&onto;Stairs">
+        <rdfs:subClassOf rdf:resource="&onto;BuildingPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Status -->
+
+    <owl:Class rdf:about="&onto;Status">
+        <rdfs:subClassOf rdf:resource="&onto;Data"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Storm -->
+
+    <owl:Class rdf:about="&onto;Storm">
+        <rdfs:subClassOf rdf:resource="&onto;Meteorological"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Stream -->
+
+    <owl:Class rdf:about="&onto;Stream">
+        <rdfs:subClassOf rdf:resource="&onto;Datatype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Tablet -->
+
+    <owl:Class rdf:about="&onto;Tablet">
+        <rdfs:subClassOf rdf:resource="&onto;Device"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Task -->
+
+    <owl:Class rdf:about="&onto;Task">
+        <rdfs:subClassOf rdf:resource="&onto;Organisation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#TaskEvent -->
+
+    <owl:Class rdf:about="&onto;TaskEvent">
+        <rdfs:subClassOf rdf:resource="&onto;ActorEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Team -->
+
+    <owl:Class rdf:about="&onto;Team">
+        <rdfs:subClassOf rdf:resource="&onto;Organisation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Team_leader -->
+
+    <owl:Class rdf:about="&onto;Team_leader">
+        <rdfs:subClassOf rdf:resource="&onto;Leader"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Terrorist_attack -->
+
+    <owl:Class rdf:about="&onto;Terrorist_attack">
+        <rdfs:subClassOf rdf:resource="&onto;Human_Made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Text -->
+
+    <owl:Class rdf:about="&onto;Text">
+        <rdfs:subClassOf rdf:resource="&onto;Datatype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#ThermoCamera -->
+
+    <owl:Class rdf:about="&onto;ThermoCamera">
+        <rdfs:subClassOf rdf:resource="&onto;Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Tornado -->
+
+    <owl:Class rdf:about="&onto;Tornado">
+        <rdfs:subClassOf rdf:resource="&onto;Storm"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Toxic_emission -->
+
+    <owl:Class rdf:about="&onto;Toxic_emission">
+        <rdfs:subClassOf rdf:resource="&onto;Industrial_incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Train -->
+
+    <owl:Class rdf:about="&onto;Train">
+        <rdfs:subClassOf rdf:resource="&onto;Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Train_crash -->
+
+    <owl:Class rdf:about="&onto;Train_crash">
+        <rdfs:subClassOf rdf:resource="&onto;Transport_incident"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Transport -->
+
+    <owl:Class rdf:about="&onto;Transport">
+        <rdfs:subClassOf rdf:resource="&onto;Task"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Transport_incident -->
+
+    <owl:Class rdf:about="&onto;Transport_incident">
+        <rdfs:subClassOf rdf:resource="&onto;Human_Made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Truck -->
+
+    <owl:Class rdf:about="&onto;Truck">
+        <rdfs:subClassOf rdf:resource="&onto;Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Tsunami -->
+
+    <owl:Class rdf:about="&onto;Tsunami">
+        <rdfs:subClassOf rdf:resource="&onto;Flood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UAV -->
+
+    <owl:Class rdf:about="&onto;UAV">
+        <rdfs:subClassOf rdf:resource="&onto;Robot"/>
+        <owl:disjointWith rdf:resource="&onto;UGV"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UAVOperatorTeam -->
+
+    <owl:Class rdf:about="&onto;UAVOperatorTeam">
+        <rdfs:subClassOf rdf:resource="&onto;OperatorsTeam"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UAVTeam -->
+
+    <owl:Class rdf:about="&onto;UAVTeam">
+        <rdfs:subClassOf rdf:resource="&onto;RobotTeam"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UAV_operator -->
+
+    <owl:Class rdf:about="&onto;UAV_operator">
+        <rdfs:subClassOf rdf:resource="&onto;Robot_operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGV -->
+
+    <owl:Class rdf:about="&onto;UGV">
+        <rdfs:subClassOf rdf:resource="&onto;Robot"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGVOperatorTeam -->
+
+    <owl:Class rdf:about="&onto;UGVOperatorTeam">
+        <rdfs:subClassOf rdf:resource="&onto;OperatorsTeam"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGVTeam -->
+
+    <owl:Class rdf:about="&onto;UGVTeam">
+        <rdfs:subClassOf rdf:resource="&onto;RobotTeam"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGV_operator -->
+
+    <owl:Class rdf:about="&onto;UGV_operator">
+        <rdfs:subClassOf rdf:resource="&onto;Robot_operator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Unidentified -->
+
+    <owl:Class rdf:about="&onto;Unidentified">
+        <rdfs:subClassOf rdf:resource="&onto;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Urban_gas_explosion -->
+
+    <owl:Class rdf:about="&onto;Urban_gas_explosion">
+        <rdfs:subClassOf rdf:resource="&onto;Human_Made"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Vehicle -->
+
+    <owl:Class rdf:about="&onto;Vehicle">
+        <rdfs:subClassOf rdf:resource="&onto;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Victim -->
+
+    <owl:Class rdf:about="&onto;Victim">
+        <rdfs:subClassOf rdf:resource="&onto;Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Video -->
+
+    <owl:Class rdf:about="&onto;Video">
+        <rdfs:subClassOf rdf:resource="&onto;Datatype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#VideoCamera -->
+
+    <owl:Class rdf:about="&onto;VideoCamera">
+        <rdfs:subClassOf rdf:resource="&onto;Sensor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Water -->
+
+    <owl:Class rdf:about="&onto;Water">
+        <rdfs:subClassOf rdf:resource="&onto;Firefighter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#WaterFlood -->
+
+    <owl:Class rdf:about="&onto;WaterFlood">
+        <rdfs:subClassOf rdf:resource="&onto;Happening"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Water_pipe -->
+
+    <owl:Class rdf:about="&onto;Water_pipe">
+        <rdfs:subClassOf rdf:resource="&onto;Infrastructure"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Wildfire -->
+
+    <owl:Class rdf:about="&onto;Wildfire">
+        <rdfs:subClassOf rdf:resource="&onto;Climatological"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Window -->
+
+    <owl:Class rdf:about="&onto;Window">
+        <rdfs:subClassOf rdf:resource="&onto;BuildingPart"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Aerial_explorer_role -->
+
+    <owl:NamedIndividual rdf:about="&onto;Aerial_explorer_role">
+        <rdf:type rdf:resource="&onto;Aerial_explorer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Driving_robot_auto -->
+
+    <owl:NamedIndividual rdf:about="&onto;Driving_robot_auto">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Driving_robot_manual -->
+
+    <owl:NamedIndividual rdf:about="&onto;Driving_robot_manual">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Firefighter -->
+
+    <owl:NamedIndividual rdf:about="&onto;Firefighter">
+        <rdf:type rdf:resource="&onto;Firefighter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Ground_explorer_role -->
+
+    <owl:NamedIndividual rdf:about="&onto;Ground_explorer_role">
+        <rdf:type rdf:resource="&onto;Ground_explorer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Idle -->
+
+    <owl:NamedIndividual rdf:about="&onto;Idle">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Infield_rescuer_1 -->
+
+    <owl:NamedIndividual rdf:about="&onto;Infield_rescuer_1">
+        <rdf:type rdf:resource="&onto;Human"/>
+        <hasRole rdf:resource="&onto;Infield_rescuer_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Infield_rescuer_2 -->
+
+    <owl:NamedIndividual rdf:about="&onto;Infield_rescuer_2">
+        <rdf:type rdf:resource="&onto;Human"/>
+        <hasRole rdf:resource="&onto;Infield_rescuer_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Infield_rescuer_role -->
+
+    <owl:NamedIndividual rdf:about="&onto;Infield_rescuer_role">
+        <rdf:type rdf:resource="&onto;Infield_rescuer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Leading -->
+
+    <owl:NamedIndividual rdf:about="&onto;Leading">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Moving_home -->
+
+    <owl:NamedIndividual rdf:about="&onto;Moving_home">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Moving_to_target -->
+
+    <owl:NamedIndividual rdf:about="&onto;Moving_to_target">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Operating_arm_or_camera -->
+
+    <owl:NamedIndividual rdf:about="&onto;Operating_arm_or_camera">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Other -->
+
+    <owl:NamedIndividual rdf:about="&onto;Other">
+        <rdf:type rdf:resource="&onto;Status"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#RescueTeam1 -->
+
+    <owl:NamedIndividual rdf:about="&onto;RescueTeam1">
+        <rdf:type rdf:resource="&onto;Team"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Team_leader -->
+
+    <owl:NamedIndividual rdf:about="&onto;Team_leader">
+        <rdf:type rdf:resource="&onto;Human"/>
+        <hasRole rdf:resource="&onto;Team_leader_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#Team_leader_role -->
+
+    <owl:NamedIndividual rdf:about="&onto;Team_leader_role">
+        <rdf:type rdf:resource="&onto;Team_leader"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UAV_1 -->
+
+    <owl:NamedIndividual rdf:about="&onto;UAV_1">
+        <rdf:type rdf:resource="&onto;UAV"/>
+        <hasRole rdf:resource="&onto;Aerial_explorer_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UAV_op_1 -->
+
+    <owl:NamedIndividual rdf:about="&onto;UAV_op_1">
+        <rdf:type rdf:resource="&onto;Human"/>
+        <hasRole rdf:resource="&onto;UAV_operator_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UAV_operator_role -->
+
+    <owl:NamedIndividual rdf:about="&onto;UAV_operator_role">
+        <rdf:type rdf:resource="&onto;UAV_operator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGV_1 -->
+
+    <owl:NamedIndividual rdf:about="&onto;UGV_1">
+        <rdf:type rdf:resource="&onto;UGV"/>
+        <hasRole rdf:resource="&onto;Ground_explorer_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGV_2 -->
+
+    <owl:NamedIndividual rdf:about="&onto;UGV_2">
+        <rdf:type rdf:resource="&onto;UGV"/>
+        <hasRole rdf:resource="&onto;Ground_explorer_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGV_op_1 -->
+
+    <owl:NamedIndividual rdf:about="&onto;UGV_op_1">
+        <rdf:type rdf:resource="&onto;Human"/>
+        <hasRole rdf:resource="&onto;UGV_operator_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGV_op_2 -->
+
+    <owl:NamedIndividual rdf:about="&onto;UGV_op_2">
+        <rdf:type rdf:resource="&onto;Human"/>
+        <hasRole rdf:resource="&onto;UGV_operator_role"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#UGV_operator_role -->
+
+    <owl:NamedIndividual rdf:about="&onto;UGV_operator_role">
+        <rdf:type rdf:resource="&onto;UGV_operator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/tradr#img1 -->
+
+    <owl:NamedIndividual rdf:about="&onto;img1">
+        <rdf:type rdf:resource="&onto;Image"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&onto;Mission"/>
+            <rdf:Description rdf:about="&onto;Role"/>
+            <rdf:Description rdf:about="&onto;Team"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&onto;ActorEvent"/>
+            <rdf:Description rdf:about="&onto;Disaster"/>
+            <rdf:Description rdf:about="&onto;Happening"/>
+            <rdf:Description rdf:about="&onto;Task"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&onto;Actor"/>
+            <rdf:Description rdf:about="&onto;Event"/>
+            <rdf:Description rdf:about="&onto;Location"/>
+            <rdf:Description rdf:about="&onto;Object"/>
+            <rdf:Description rdf:about="&onto;Organisation"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&onto;BuildingPart"/>
+            <rdf:Description rdf:about="&onto;Device"/>
+            <rdf:Description rdf:about="&onto;Infrastructure"/>
+            <rdf:Description rdf:about="&onto;Unidentified"/>
+            <rdf:Description rdf:about="&onto;Vehicle"/>
+            <rdf:Description rdf:about="&onto;Victim"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

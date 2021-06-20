@@ -1,0 +1,7 @@
+use pl.age as knowledge.
+exit=always.
+exit=never.
+
+module test_DUPLICATE_OPTION {
+	if true then print("this is").
+}

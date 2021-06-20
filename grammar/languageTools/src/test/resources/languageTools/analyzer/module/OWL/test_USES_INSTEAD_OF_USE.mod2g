@@ -1,0 +1,6 @@
+uses data.newfamily as knowledge.
+uses familyfacts as beliefs.
+
+module test {
+	if true then print("hello"^^xsd:String).
+}

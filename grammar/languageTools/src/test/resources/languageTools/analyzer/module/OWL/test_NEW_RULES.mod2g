@@ -1,0 +1,7 @@
+use familyrules as knowledge.
+use familyfacts as beliefs.
+
+module test_empty {
+	if bel(:hasMother(:Danny, :Susan)) then print("Rule fired"^^"xsd:string") .
+	if bel(:Person(?x)) then (?x).send(:hasMother(:Danny, :Susan)) .
+}

@@ -1,0 +1,6 @@
+use know as knowledge.
+use actionp as actionspec.
+
+module modulep {
+	if true then dop.
+}

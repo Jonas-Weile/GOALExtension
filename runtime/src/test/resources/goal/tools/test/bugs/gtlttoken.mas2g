@@ -1,0 +1,7 @@
+define gtlttokenAgent as agent {
+	use gtlt as main module.
+}
+
+launchpolicy {
+	launch gtlttokenAgent.
+}

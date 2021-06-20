@@ -1,0 +1,10 @@
+use moduleTwoArguments as knowledge.
+exit = always.
+order = linearall.
+
+module twoArguments(ArgOne,ArgTwo){
+	if true then {
+		if true then insert(twoArguments(ArgOne,ArgTwo)).
+		if true then insert(twoArgumentsDone).
+	}
+}

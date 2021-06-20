@@ -1,0 +1,11 @@
+define dummy1 as agent {
+	use decisions as main.
+}
+
+define dummy2 as agent {
+	use decisions as main.
+}
+
+launchpolicy{
+	launch dummy1.
+}

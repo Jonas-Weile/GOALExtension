@@ -1,0 +1,3 @@
+use pl.age as knowledge.
+
+define skip with pre{ } post{ true }

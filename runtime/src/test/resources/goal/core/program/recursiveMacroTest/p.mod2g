@@ -1,0 +1,7 @@
+use prolog as knowledge.
+
+define m(X) as bel(X>0, Y=1).
+module p(X) {
+	if m(X), bel(Y===1) then insert(result(fail)).
+	if not(result(fail)) then insert(result(ok)). 
+}

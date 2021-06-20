@@ -1,0 +1,5 @@
+use pl.age as beliefs.
+
+module mod1(X,Y) {
+	if bel(age(X,Y)) then print(Y).
+}

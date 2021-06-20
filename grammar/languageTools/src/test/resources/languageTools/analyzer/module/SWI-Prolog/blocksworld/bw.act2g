@@ -1,0 +1,6 @@
+use bwknowledge as knowledge.
+%use bwbeliefs as beliefs.
+
+define move(X,Y) with
+	pre { clear(X), clear(Y), on(X,Z) } 
+	post { clear(Z) }

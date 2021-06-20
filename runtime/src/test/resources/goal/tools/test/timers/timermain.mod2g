@@ -1,0 +1,7 @@
+use timer as knowledge.
+order=linearall.
+
+module timermain {
+	if percept(timer(timer1,X)), bel(X>=1000) then exit-module.
+	if percept(timer(timer2,_)) then canceltimer(timer2).
+}

@@ -1,0 +1,7 @@
+define dropAgent as agent {
+	use dropModule as main module.
+}
+
+launchpolicy {
+    launch dropAgent. 
+}

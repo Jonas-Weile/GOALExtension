@@ -1,0 +1,11 @@
+use passParameterToRuleCondition as mas.
+use passParameterToRuleCondition as module.
+use result as knowledge.
+
+test passParameterToRuleCondition with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+passParameterTest {
+	do passParameterToRuleCondition.
+}

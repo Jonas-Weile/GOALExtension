@@ -1,0 +1,11 @@
+use timers.
+use timermain.
+use timer as knowledge.
+
+test timermain with
+	in{ never percept(timer(timer2,X)), bel(X>=100). }
+	post{ percept(timer(timer1,X)), bel(X>=1000) }
+
+timerAgent {
+	do timermain.
+}

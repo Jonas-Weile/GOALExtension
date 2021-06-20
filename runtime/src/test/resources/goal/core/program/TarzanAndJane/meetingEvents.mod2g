@@ -1,0 +1,8 @@
+use meeting as knowledge.
+
+module events {
+	% save incoming messages for later processing. Our agents do not process everything in 1 cycle.
+	if (Person).sent(invite(Date, Time, Duration, Attendees)) then insert(receivedInvitation(Person, meeting(Date, Time, Duration, Attendees))).
+	
+	if (Person).sent(accept(Date, Time, Duration, Attendees)) then insert(receivedAccept(Person, meeting(Date, Time, Duration, Attendees))).
+}

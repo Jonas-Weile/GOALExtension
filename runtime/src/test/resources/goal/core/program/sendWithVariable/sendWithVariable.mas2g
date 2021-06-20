@@ -1,0 +1,11 @@
+% test to verify that send actions send messages which have an occurrence of a variable
+% if the mood of the message is an interrogative.
+
+define sendQ as agent {
+	use sendGoal as init.
+	use testUntilResult as main.
+}
+
+launchpolicy {
+	launch sendQ.
+}

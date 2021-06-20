@@ -1,0 +1,11 @@
+use know as knowledge.
+use somegoal as goals.
+exit=always.
+
+module testgoal {
+	% insert of predicate should trigger re-evaliation of goals,
+	% and thus triggers a query of printhello in the beliefbase.
+	% printhello should have been declared dynamic automatically
+	% because it is a 'known goal'.
+	if goal(printedhello) then print("Hello, world!")+insert(printedhello)+insert(result(ok)).
+}

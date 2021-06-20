@@ -1,0 +1,12 @@
+%Correct: minimal version.
+use correctMasUnderTest.
+use moduleUnderTest.
+
+test moduleUnderTest(A,B,C,D) with
+	pre { }
+	in { }
+	post { }
+
+fibonaci {
+	do moduleUnderTest(identifier, 42, 0.42, function).
+}

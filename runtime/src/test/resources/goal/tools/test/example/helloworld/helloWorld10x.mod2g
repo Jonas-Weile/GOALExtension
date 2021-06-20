@@ -1,0 +1,7 @@
+use counter as knowledge.
+use printText as actionspec.
+exit=nogoals.
+
+module helloWorld10x {
+	if goal( nrOfPrintedLines(_) ) then printText("Hello, world!").
+}

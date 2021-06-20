@@ -1,0 +1,5 @@
+use pl.age as knowledge.
+
+module test_KR_PROLOG_LISTALL_ANONYMOUS_VARIABLE {
+	listall _ <- true do print("hello").
+}

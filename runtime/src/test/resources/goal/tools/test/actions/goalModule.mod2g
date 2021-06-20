@@ -1,0 +1,8 @@
+use testgoal as knowledge.
+order = linearall.
+exit = nogoals.
+
+module goalModule {
+    if bel(true) then adopt(test).
+	if bel(true) then insert(test).
+}

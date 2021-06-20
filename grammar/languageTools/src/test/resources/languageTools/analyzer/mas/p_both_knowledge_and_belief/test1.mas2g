@@ -1,0 +1,7 @@
+define dummy as agent {
+	use modulep as main module.
+}
+
+launchpolicy{
+	launch dummy.
+}

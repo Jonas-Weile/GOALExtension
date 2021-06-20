@@ -1,0 +1,5 @@
+use prolog as knowledge.
+
+define action(Y) as internal with 
+	pre{ X == 1 } % this should fail.
+	post{ executed(Y), not(result(ok)), result(failure) }

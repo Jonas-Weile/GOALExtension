@@ -1,0 +1,8 @@
+use prolog as knowledge.
+use f.
+order=linearall.
+exit=always.
+
+module macro {
+	if bel(true) then f(1).
+}

@@ -1,0 +1,1 @@
+:-dynamic age/2.

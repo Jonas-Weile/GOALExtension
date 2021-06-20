@@ -1,0 +1,7 @@
+%Correct: minimal version of evaluate in statement.
+use correctMasUnderTest.
+use moduleUnderTest.
+
+fibonaci {
+	do moduleUnderTest(identifier, 42, 0.42, function).
+}

@@ -1,0 +1,5 @@
+use correctMasUnderTest.
+
+fibonaci {
+	do nonExistingModule.
+}

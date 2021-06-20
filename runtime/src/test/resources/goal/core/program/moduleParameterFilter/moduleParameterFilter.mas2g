@@ -1,0 +1,7 @@
+define passParameterTest as agent {
+	use moduleParameterFilter as main module.
+}
+
+launchpolicy {
+	launch passParameterTest.
+}

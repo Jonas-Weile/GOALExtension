@@ -1,0 +1,22 @@
+%Correct: exhaustive example
+use correctMasUnderTest.
+use beforeModule.
+use moduleUnderTest.
+use afterModule.
+use fibonaci as knowledge.
+
+test beforeModule with 
+	pre { bel(not(beforeModule)) }
+	post { bel(beforeModule) }
+test moduleUnderTest(A,B,C,D) with
+	pre { bel(not(moduleUnderTest)) }
+	post { bel(moduleUnderTest) }
+test afterModule(A,B) with
+	pre { bel(not(afterModule)) }
+	post { bel(afterModule) }
+
+fibonaci {
+	do beforeModule.
+	do moduleUnderTest(identifier, 42, 0.42, function).
+	do afterModule(something,somethingElse).
+}

@@ -1,0 +1,1 @@
+:-dynamic result/1, in/1.

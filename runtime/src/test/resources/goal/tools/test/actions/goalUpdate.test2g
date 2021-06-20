@@ -1,0 +1,13 @@
+use goalUpdate.
+use goalModule.
+use testgoal as knowledge.
+timeout = 1.
+
+test goalModule with
+	pre{ true }
+	in{ eventually goal(test). }
+	post{ not(goal(true)) }
+
+goalAgent {
+	do goalModule.
+}

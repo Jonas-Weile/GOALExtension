@@ -1,0 +1,13 @@
+use counter.
+use counterMain.
+use printCounter.
+use counter as knowledge.
+
+test counterMain with
+	in { always bel(counter(X)).
+		 eventually bel(counter(100)). }
+	
+counter {
+	do counterMain.
+	do printCounter.
+}

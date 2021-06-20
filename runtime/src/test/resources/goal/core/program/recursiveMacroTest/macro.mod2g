@@ -1,0 +1,12 @@
+use prolog as knowledge.
+
+order=linearall.
+exit=always.
+
+% notice, m(X) always fails because X>0 eventually will fail
+define m(X) as bel(X>0, X1 is X-1), m(X1).
+
+module macro {
+	if m(5) then insert(result(failure)).
+	if not(bel(result(failure))) then insert(result(ok)). 
+}

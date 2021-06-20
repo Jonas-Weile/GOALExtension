@@ -1,0 +1,10 @@
+use gtlttoken.
+use gtlt.
+
+test gtlt with
+	pre { bel(A is 1, B is 2, A =< A) }
+	post { bel(A is 1, B is 2, A >= A) }
+
+gtlttokenAgent {
+	do gtlt.
+}

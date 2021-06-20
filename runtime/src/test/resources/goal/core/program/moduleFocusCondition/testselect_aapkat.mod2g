@@ -1,0 +1,8 @@
+use result as knowledge.
+use testselect_aapbeer.
+focus = select.
+
+module aapkat {
+	if bel(true) then insert(result(ok)).
+	if not(bel(true)) then aapbeer.
+}

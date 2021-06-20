@@ -1,0 +1,21 @@
+use meeting as mas.
+use tarzan as module.
+use jane as module.
+use meeting as knowledge.
+timeout=1.
+
+test tarzan with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+test jane with
+	pre{ not(bel(result(_))) }
+	post{ bel(result(ok)) }
+
+tarzan {
+	do tarzan.
+}
+
+jane {
+	do jane.
+}

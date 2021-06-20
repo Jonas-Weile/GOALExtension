@@ -1,0 +1,5 @@
+use pl.age as knowledge.
+
+module test_KR_UPDATE_EMPTY {
+	if bel( age(_, 42) ) then insert().
+}

@@ -1,0 +1,6 @@
+use pl.pqr as goals.
+use dummyMove.
+
+module beliefqry {
+	if goal(p, s) then move.
+}

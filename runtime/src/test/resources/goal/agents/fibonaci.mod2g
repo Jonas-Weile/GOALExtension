@@ -1,0 +1,7 @@
+use fibonaci as knowledge.
+
+exit = always.
+	
+module fibonaci {
+	if bel( fib(24, Y) ) then insert( fib(Y) ) + sleep(1).
+}

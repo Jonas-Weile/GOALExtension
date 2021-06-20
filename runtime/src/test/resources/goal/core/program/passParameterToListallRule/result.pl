@@ -1,0 +1,1 @@
+:-dynamic result/1, beer/1, kat/1.

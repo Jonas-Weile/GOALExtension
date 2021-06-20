@@ -1,0 +1,10 @@
+use correctMasUnderTest.
+use moduleUnderTest.
+
+agentUnderTest {
+	do moduleUnderTest(identifier, 42, 0.42, function).
+}
+	
+agentUnderTest {
+	do moduleUnderTest(identifier, 42, 0.42, function).
+}

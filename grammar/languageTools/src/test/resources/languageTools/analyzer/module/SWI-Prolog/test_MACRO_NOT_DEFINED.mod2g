@@ -1,0 +1,5 @@
+use pl.age as knowledge.
+
+module test_MACRO_NOT_DEFINED {
+	if macro(X, Y, Z) then delete(age(X, Y)) + insert(age(X, Z)) + print("happy birthday").
+}

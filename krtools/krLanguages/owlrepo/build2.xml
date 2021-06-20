@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="owlrepo" default="owlrepo" basedir="."> 
+  <target name="owlrepo">
+    <jar destfile="stardog-server-2.2.2.jar" zip64Mode="as-needed" >
+    <zipgroupfileset dir="src/main/resources/server" includes="**/*.jar" /> 
+	</jar>
+  </target>
+</project>

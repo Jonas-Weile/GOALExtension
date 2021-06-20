@@ -1,0 +1,5 @@
+use prolog as knowledge.
+
+module p(X) {
+	if bel(X>0, X1 is X-1) then print("hello") + p(X1).
+}

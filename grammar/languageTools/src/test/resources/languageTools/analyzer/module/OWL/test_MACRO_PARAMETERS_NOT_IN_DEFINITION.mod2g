@@ -1,0 +1,7 @@
+use family as knowledge.
+
+define macro(?x, ?y, ?z) as bel(:hasAge(?x, ?y)).
+
+module mod {
+	if macro(?x, ?y, ?z) then delete(:hasAge(?x, ?y)) + insert(:hasAge(?x, ?z)) + print("happy birthday"^^"xsd:string").
+}

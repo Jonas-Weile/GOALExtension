@@ -1,0 +1,7 @@
+use pl.age as knowledge.
+
+define macro(X, Y, 42) as bel(age(X, Y)). 
+
+module test_PARAMETER_NOT_A_VARIABLE(a) {
+	if macro(X, Y), bel(age(X, Y), age(V, Z)) then delete(age(X, Y)) + insert(age(X, Z)) + print("happy birthday").
+}

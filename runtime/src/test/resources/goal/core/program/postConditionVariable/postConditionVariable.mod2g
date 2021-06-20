@@ -1,0 +1,17 @@
+use result as knowledge.
+use aap as beliefs.
+use testAction.
+
+order = linearall.
+
+module postConditionVariable {
+	if bel(true) then testaction.
+		
+	% if rule condition holds, then removing the delete list of the post-condition failed.
+	if bel(aap(X)) then insert(result(failure)) + exit-module.
+		
+	% now test whether add list of post-condition was processed correctly.
+	if bel(beer(Y), Y==1) then insert(result(ok)) + exit-module.
+		
+	if bel(true) then insert(failure) + exit-module.
+}

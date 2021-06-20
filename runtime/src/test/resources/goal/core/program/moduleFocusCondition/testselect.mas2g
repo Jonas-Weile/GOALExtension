@@ -1,0 +1,7 @@
+define testselect as agent {
+	use testselect as main module.
+}
+
+launchpolicy {
+	launch testselect.
+}

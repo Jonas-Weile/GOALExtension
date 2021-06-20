@@ -1,0 +1,7 @@
+define dummy as agent {
+	use decisions as plans.
+}
+
+launchpolicy{
+	launch dummy.
+}

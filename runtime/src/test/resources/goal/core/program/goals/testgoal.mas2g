@@ -1,0 +1,7 @@
+define testGoalAgent as agent {
+	use testgoal as main module.
+}
+
+launchpolicy {
+	launch testGoalAgent.
+}

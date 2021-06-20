@@ -1,0 +1,9 @@
+use dummy_environment as environment with key=value.
+
+define dummy as agent {
+	use othermodule as init module.
+}
+
+launchpolicy{
+	when * launch dummy.
+}

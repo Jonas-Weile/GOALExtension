@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.bitbucket.goalhub.mentalstate.msStates</groupId>
+	<artifactId>swiprologmentalstate</artifactId>
+	<parent>
+		<groupId>org.bitbucket.goalhub.mentalstate</groupId>
+		<artifactId>msStates</artifactId>
+		<version>2.2.0</version>
+	</parent>
+
+	<description>Provides an implementation of a mental state that uses the SWI Prolog language for representing a mental state' content.</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>${krGroup}</groupId>
+			<artifactId>krInterface</artifactId>
+			<version>${krVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${krGroup}.krLanguages</groupId>
+			<artifactId>swiprolog</artifactId>
+			<version>${krVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${grammarGroup}</groupId>
+			<artifactId>languageTools</artifactId>
+			<version>${grammarVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>msInterface</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>eishub</groupId>
+			<artifactId>eis</artifactId>
+			<version>${eis}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${jUnit}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jpl</groupId>
+			<artifactId>jpl</artifactId>
+			<version>8.3.15</version>
+		</dependency>
+
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>msInterface</artifactId>
+			<version>${project.parent.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

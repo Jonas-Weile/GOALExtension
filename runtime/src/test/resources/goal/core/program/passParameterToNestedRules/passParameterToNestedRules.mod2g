@@ -1,0 +1,12 @@
+use result as knowledge.
+use aap as beliefs.
+
+exit = always.
+
+module passParameterToNestedRules {
+	if bel( result(X) ) then exit-module.
+
+	if bel( aap(Y) ) then {
+		if bel(Y == 1) then insert(result(ok)).
+	}
+}

@@ -1,0 +1,13 @@
+define fibonaci as agent {
+	use fibonaci as main module.
+	use beforeModule.
+	use moduleUnderTest.
+	use afterModule.
+}
+
+launchpolicy {
+	launch fibonaci with name = agentUnderTest.
+	launch fibonaci with name = agentUnderTest.
+	launch fibonaci with name = secondAgentUnderTest.
+	launch fibonaci with name = extraAgentWithNoTest.
+}

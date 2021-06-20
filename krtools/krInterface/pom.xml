@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.bitbucket.goalhub.krTools</groupId>
+	<artifactId>krInterface</artifactId>
+	<parent>
+		<groupId>org.bitbucket.goalhub</groupId>
+		<artifactId>krTools</artifactId>
+		<version>1.4.0</version>
+	</parent>
+
+	<description>The Knowledge Representation (KR) Interface defines an interface that provides access to various knowledge representation technologies in a generic way. It provides support for processing a KR language (e.g., parsing), database storage, and querying and updating of a database.</description>
+</project>

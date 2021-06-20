@@ -1,0 +1,6 @@
+use pl.pqr as knowledge.
+
+module test_RULE_MISSING_BODY {
+	if bel(r) then.
+	if bel(p) then print("hello").
+}

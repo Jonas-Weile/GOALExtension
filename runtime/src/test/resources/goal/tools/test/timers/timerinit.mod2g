@@ -1,0 +1,6 @@
+use timer as knowledge.
+
+module timerinit {
+	if true then starttimer(timer1,100,1000).
+	if bel(A=timer2,X=10,Y=100) then starttimer(A,X,Y).
+}

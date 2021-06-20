@@ -1,0 +1,5 @@
+use know as knowledge.
+
+module modulep {
+	if true then insert(not(p)).
+}

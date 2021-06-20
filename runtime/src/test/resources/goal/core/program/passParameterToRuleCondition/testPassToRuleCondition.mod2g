@@ -1,0 +1,9 @@
+use result as knowledge.
+
+focus = new.
+exit = always.
+order = linearall.
+
+module testPassToRuleCondition(X) {
+	if bel( X == 1 ) then insert(result(ok)).
+}

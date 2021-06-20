@@ -1,0 +1,8 @@
+use testgoal as knowledge.
+order = linearall.
+exit = nogoals.
+
+module dropModule {
+	if true then adopt(test).
+	if true then drop(test).
+}

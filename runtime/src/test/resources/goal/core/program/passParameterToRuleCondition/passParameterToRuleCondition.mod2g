@@ -1,0 +1,12 @@
+use result as knowledge.
+use aap as beliefs.
+use testPassToRuleCondition.
+
+exit = always.
+
+module passParameterToRuleCondition {
+	if bel( result(X) ) then exit-module.
+
+	% do module call with parameter.
+	if bel( aap(Y) ) then testPassToRuleCondition(Y).
+}

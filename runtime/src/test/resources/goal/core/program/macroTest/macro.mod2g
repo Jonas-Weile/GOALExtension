@@ -1,0 +1,10 @@
+use prolog as knowledge.
+
+order=linearall.
+exit=always.
+define m(X) as bel(X>0, Y=1).
+
+module macro {
+	if m(1), bel(Y==1) then insert(result(failure)).
+	if not(bel(result(failure))) then insert(result(ok)). 
+}
